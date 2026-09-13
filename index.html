@@ -12,40 +12,74 @@
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --border: #1f293d;
+            --danger: #ff3333;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Courier New', Courier, monospace; }
-        body { background-color: var(--bg-color); color: var(--text-main); padding: 20px; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Courier New', Courier, monospace; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-main); padding-top: 70px; line-height: 1.6; }
         
-        header { text-align: center; padding: 40px 0; border-bottom: 1px dashed var(--border); margin-bottom: 30px; }
-        .classified-tag { background: #ff3333; color: white; padding: 4px 10px; font-size: 0.8rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; }
-        h1 { font-size: 2.2rem; margin: 15px 0 10px 0; letter-spacing: -1px; }
+        /* Menú de Navegación */
+        nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(11, 15, 25, 0.95); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; z-index: 1000; }
+        .nav-logo { font-weight: bold; color: var(--accent); letter-spacing: 2px; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        
+        /* Cabecera Hero */
+        header { text-align: center; padding: 50px 0; border-bottom: 1px dashed var(--border); margin-bottom: 40px; }
+        .classified-tag { background: var(--danger); color: white; padding: 4px 10px; font-size: 0.8rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; }
+        h1 { font-size: 2.5rem; margin: 15px 0 10px 0; letter-spacing: -1px; }
         .tagline { color: var(--text-muted); font-size: 1rem; }
 
-        .hero-box { background: var(--card-bg); border: 1px solid var(--border); padding: 30px; border-radius: 8px; text-align: center; margin-bottom: 30px; position: relative; }
+        .hero-box { background: var(--card-bg); border: 1px solid var(--border); padding: 40px; border-radius: 8px; text-align: center; margin-bottom: 40px; position: relative; }
         .hero-box::before { content: "CLASSIFIED // FILE 001"; position: absolute; top: 10px; left: 15px; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 1px; }
-        .hero-question { font-size: 1.5rem; color: var(--accent); margin: 20px 0; font-weight: bold; }
+        .hero-question { font-size: 1.8rem; color: var(--accent); margin: 20px 0; font-weight: bold; }
         
-        .btn { display: inline-block; background-color: transparent; color: var(--accent); border: 2px solid var(--accent); padding: 12px 25px; font-weight: bold; text-decoration: sans-serif; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
+        .btn { display: inline-block; background-color: transparent; color: var(--accent); border: 2px solid var(--accent); padding: 12px 25px; font-weight: bold; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
         .btn:hover { background-color: var(--accent); color: var(--bg-color); box-shadow: 0 0 15px rgba(0,255,102,0.4); }
 
-        .section-title { font-size: 1.2rem; border-left: 4px solid var(--accent); padding-left: 10px; margin: 30px 0 15px 0; text-transform: uppercase; letter-spacing: 1px; }
+        .section-title { font-size: 1.4rem; border-left: 4px solid var(--accent); padding-left: 10px; margin: 50px 0 20px 0; text-transform: uppercase; letter-spacing: 1px; }
         
-        .expedient-card { background: var(--card-bg); border: 1px solid var(--border); padding: 20px; border-radius: 6px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; transition: border-color 0.2s; }
-        .expedient-card:hover { border-color: var(--accent); }
-        .exp-info h3 { font-size: 1.1rem; margin-bottom: 5px; }
-        .exp-info p { font-size: 0.85rem; color: var(--text-muted); }
-        
-        .status-badge { font-size: 0.75rem; padding: 4px 8px; border-radius: 3px; font-weight: bold; text-transform: uppercase; }
+        /* Expedientes y Blog Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .card { background: var(--card-bg); border: 1px solid var(--border); padding: 20px; border-radius: 6px; transition: border-color 0.2s; }
+        .card:hover { border-color: var(--accent); }
+        .card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; }
+
+        .status-badge { font-size: 0.7rem; padding: 3px 8px; border-radius: 3px; font-weight: bold; text-transform: uppercase; }
         .status-verified { background: rgba(0,255,102,0.15); color: var(--accent); border: 1px solid var(--accent); }
         .status-investigation { background: rgba(255,204,0,0.15); color: #ffcc00; border: 1px solid #ffcc00; }
 
-        footer { text-align: center; margin-top: 50px; font-size: 0.8rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 20px; }
+        /* Tienda Mini */
+        .store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .store-item { background: var(--card-bg); border: 1px solid var(--border); padding: 15px; border-radius: 6px; text-align: center; }
+        .store-item h4 { margin-bottom: 8px; font-size: 1rem; }
+        .price { color: var(--accent); font-weight: bold; margin-bottom: 10px; font-size: 0.9rem; }
+
+        footer { text-align: center; margin-top: 60px; font-size: 0.8rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 25px; padding-bottom: 25px; }
+
+        @media(max-width: 600px) {
+            .nav-links { display: none; } /* Simplificado para móviles estrechos */
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <!-- Menú Superior Profesional -->
+    <nav>
+        <div class="nav-logo">👁️ TESTIGO CIEGO</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#expedientes">Expedientes</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#foro">Comunidad</a></li>
+            <li><a href="#tienda">Tienda</a></li>
+        </ul>
+    </nav>
+
+    <div class="container" id="inicio">
         <header>
             <span class="classified-tag">Acceso Restringido</span>
             <h1>TESTIGO CIEGO</h1>
@@ -58,31 +92,77 @@
             <a href="#expedientes" class="btn">Abrir Expediente</a>
         </div>
 
+        <!-- 2. SECCIÓN DE INVESTIGACIONES / EXPEDIENTES -->
         <div id="expedientes">
-            <h2 class="section-title">📁 Últimos Expedientes</h2>
+            <h2 class="section-title">📁 Expedientes Confidenciales</h2>
             
-            <div class="expedient-card">
-                <div class="exp-info">
-                    <h3>EXPEDIENTE #001 — CALVINE</h3>
-                    <p>Fotografía original de un objeto enigmático sobre el agua.</p>
+            <div class="grid">
+                <div class="card">
+                    <span class="status-badge status-verified">Verificado</span>
+                    <h3 style="margin-top: 10px;">EXPEDIENTE #001 — CALVINE</h3>
+                    <p>Fotografía original analizada de un objeto enigmático sobre el agua y sus contornos anómalos.</p>
+                    <a href="#" style="color: var(--accent); font-size: 0.85rem; text-decoration: none;">Consultar Ficha →</a>
                 </div>
-                <span class="status-badge status-verified">Verificado</span>
-            </div>
 
-            <div class="expedient-card">
-                <div class="exp-info">
-                    <h3>EXPEDIENTE #002 — 3I/ATLAS</h3>
-                    <p>Anomalías detectadas en trayectorias espaciales.</p>
+                <div class="card">
+                    <span class="status-badge status-investigation">En Investigación</span>
+                    <h3 style="margin-top: 10px;">EXPEDIENTE #002 — 3I/ATLAS</h3>
+                    <p>Desviaciones detectadas y trayectorias espaciales que no cuadran con la física oficial.</p>
+                    <a href="#" style="color: var(--accent); font-size: 0.85rem; text-decoration: none;">Consultar Ficha →</a>
                 </div>
-                <span class="status-badge status-investigation">En Investigación</span>
-            </div>
 
-            <div class="expedient-card">
-                <div class="exp-info">
-                    <h3>EXPEDIENTE #003 — CERN</h3>
-                    <p>Lecturas inusuales registradas durante colisiones de alta energía.</p>
+                <div class="card">
+                    <span class="status-badge status-investigation">En Investigación</span>
+                    <h3 style="margin-top: 10px;">EXPEDIENTE #003 — CERN</h3>
+                    <p>Lecturas inusuales registradas durante colisiones de alta energía y anomalías temporales.</p>
+                    <a href="#" style="color: var(--accent); font-size: 0.85rem; text-decoration: none;">Consultar Ficha →</a>
                 </div>
-                <span class="status-badge status-investigation">En Investigación</span>
+            </div>
+        </div>
+
+        <!-- 4. SECCIÓN BLOG -->
+        <div id="blog">
+            <h2 class="section-title">📝 Blog de Investigación</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 style="font-size:1rem; margin-bottom:5px;">El enigma de las fotografías antiguas retocadas</h3>
+                    <p>Cómo diferenciar un montaje analógico de una auténtica anomalía capturada en el siglo pasado.</p>
+                </div>
+                <div class="card">
+                    <h3 style="font-size:1rem; margin-bottom:5px;">Inteligencia Artificial y la suplantación de la realidad</h3>
+                    <p>Análisis técnico de los últimos vídeos virales que han desconcertado a la comunidad.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. SECCIÓN FORO / COMUNIDAD -->
+        <div id="foro">
+            <h2 class="section-title">🗣️ Foro de la Comunidad</h2>
+            <div class="card" style="text-align: center; padding: 30px;">
+                <p style="margin-bottom: 15px; color: var(--text-main);">El acceso al archivo de debates y subida de evidencias por rangos de investigador está abierto para miembros registrados.</p>
+                <a href="#" class="btn" style="font-size: 0.8rem; padding: 8px 15px;">Acceder al Foro</a>
+            </div>
+        </div>
+
+        <!-- 6. TIENDA DE MERCHANDISING -->
+        <div id="tienda">
+            <h2 class="section-title">💰 Archivo Tienda & Premium</h2>
+            <div class="store-grid">
+                <div class="store-item">
+                    <h4>Sudadera Oficial Testigo Ciego</h4>
+                    <p class="price">45.00 €</p>
+                    <button class="btn" style="font-size: 0.75rem; padding: 6px 10px; width: 100%;">Adquirir</button>
+                </div>
+                <div class="store-item">
+                    <h4>Cuaderno de Campo (Físico)</h4>
+                    <p class="price">18.50 €</p>
+                    <button class="btn" style="font-size: 0.75rem; padding: 6px 10px; width: 100%;">Adquirir</button>
+                </div>
+                <div class="store-item">
+                    <h4>Expediente 013 (Digital Premium)</h4>
+                    <p class="price">4.99 €</p>
+                    <button class="btn" style="font-size: 0.75rem; padding: 6px 10px; width: 100%;">Desbloquear</button>
+                </div>
             </div>
         </div>
 
