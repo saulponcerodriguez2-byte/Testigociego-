@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testigo Ciego — Archivo de Investigaciones</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #131c2e;
+            --accent: #00ff66;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #1f293d;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Courier New', Courier, monospace; }
+        body { background-color: var(--bg-color); color: var(--text-main); padding: 20px; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        header { text-align: center; padding: 40px 0; border-bottom: 1px dashed var(--border); margin-bottom: 30px; }
+        .classified-tag { background: #ff3333; color: white; padding: 4px 10px; font-size: 0.8rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; }
+        h1 { font-size: 2.2rem; margin: 15px 0 10px 0; letter-spacing: -1px; }
+        .tagline { color: var(--text-muted); font-size: 1rem; }
+
+        .hero-box { background: var(--card-bg); border: 1px solid var(--border); padding: 30px; border-radius: 8px; text-align: center; margin-bottom: 30px; position: relative; }
+        .hero-box::before { content: "CLASSIFIED // FILE 001"; position: absolute; top: 10px; left: 15px; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 1px; }
+        .hero-question { font-size: 1.5rem; color: var(--accent); margin: 20px 0; font-weight: bold; }
+        
+        .btn { display: inline-block; background-color: transparent; color: var(--accent); border: 2px solid var(--accent); padding: 12px 25px; font-weight: bold; text-decoration: sans-serif; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
+        .btn:hover { background-color: var(--accent); color: var(--bg-color); box-shadow: 0 0 15px rgba(0,255,102,0.4); }
+
+        .section-title { font-size: 1.2rem; border-left: 4px solid var(--accent); padding-left: 10px; margin: 30px 0 15px 0; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .expedient-card { background: var(--card-bg); border: 1px solid var(--border); padding: 20px; border-radius: 6px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; transition: border-color 0.2s; }
+        .expedient-card:hover { border-color: var(--accent); }
+        .exp-info h3 { font-size: 1.1rem; margin-bottom: 5px; }
+        .exp-info p { font-size: 0.85rem; color: var(--text-muted); }
+        
+        .status-badge { font-size: 0.75rem; padding: 4px 8px; border-radius: 3px; font-weight: bold; text-transform: uppercase; }
+        .status-verified { background: rgba(0,255,102,0.15); color: var(--accent); border: 1px solid var(--accent); }
+        .status-investigation { background: rgba(255,204,0,0.15); color: #ffcc00; border: 1px solid #ffcc00; }
+
+        footer { text-align: center; margin-top: 50px; font-size: 0.8rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <span class="classified-tag">Acceso Restringido</span>
+            <h1>TESTIGO CIEGO</h1>
+            <p class="tagline">Aquí no creemos en historias. Investigamos evidencias.</p>
+        </header>
+
+        <div class="hero-box">
+            <div class="hero-question">¿QUÉ HAS VISTO?</div>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">El archivo de la comunidad está abierto. Analiza las pruebas bajo tu propia responsabilidad.</p>
+            <a href="#expedientes" class="btn">Abrir Expediente</a>
+        </div>
+
+        <div id="expedientes">
+            <h2 class="section-title">📁 Últimos Expedientes</h2>
+            
+            <div class="expedient-card">
+                <div class="exp-info">
+                    <h3>EXPEDIENTE #001 — CALVINE</h3>
+                    <p>Fotografía original de un objeto enigmático sobre el agua.</p>
+                </div>
+                <span class="status-badge status-verified">Verificado</span>
+            </div>
+
+            <div class="expedient-card">
+                <div class="exp-info">
+                    <h3>EXPEDIENTE #002 — 3I/ATLAS</h3>
+                    <p>Anomalías detectadas en trayectorias espaciales.</p>
+                </div>
+                <span class="status-badge status-investigation">En Investigación</span>
+            </div>
+
+            <div class="expedient-card">
+                <div class="exp-info">
+                    <h3>EXPEDIENTE #003 — CERN</h3>
+                    <p>Lecturas inusuales registradas durante colisiones de alta energía.</p>
+                </div>
+                <span class="status-badge status-investigation">En Investigación</span>
+            </div>
+        </div>
+
+        <footer>
+            <p>TESTIGO CIEGO © 2026 // RED DE INVESTIGACIÓN ANÓNIMA</p>
+        </footer>
+    </div>
+
+</body>
+</html>
