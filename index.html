@@ -1,838 +1,1075 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Testigo Ciego — Archivo de Investigaciones</title>
-
-    <meta name="description" content="Testigo Ciego — investigaciones, enigmas, evidencias y objetos seleccionados.">
-    <meta name="theme-color" content="#0b0f19">
-
-    <style>
-        :root {
-            --bg-color: #080b12;
-            --card-bg: #111827;
-            --card-hover: #172033;
-            --accent: #00ff66;
-            --accent-soft: rgba(0,255,102,0.12);
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border: #263044;
-            --danger: #ff3333;
-            --warning: #ffcc00;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Courier New', Courier, monospace;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background:
-                radial-gradient(circle at top, rgba(0,255,102,0.05), transparent 35%),
-                var(--bg-color);
-            color: var(--text-main);
-            padding-top: 75px;
-            line-height: 1.6;
-        }
-
-        /* =========================
-           NAVEGACIÓN
-        ========================= */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(8,11,18,0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            z-index: 1000;
-        }
-
-        .nav-logo {
-            font-weight: bold;
-            color: var(--accent);
-            letter-spacing: 2px;
-            font-size: 1.05rem;
-            white-space: nowrap;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            transition: 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* =========================
-           CONTENEDOR
-        ========================= */
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        header {
-            text-align: center;
-            padding: 65px 0 45px;
-            border-bottom: 1px dashed var(--border);
-            margin-bottom: 40px;
-        }
-
-        .classified-tag {
-            display: inline-block;
-            background: var(--danger);
-            color: white;
-            padding: 4px 10px;
-            font-size: 0.72rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 3px;
-        }
-
-        h1 {
-            font-size: clamp(2.2rem, 6vw, 4rem);
-            margin: 15px 0 10px;
-            letter-spacing: -2px;
-        }
-
-        .tagline {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .hero-box {
-            background:
-                linear-gradient(145deg, rgba(0,255,102,0.04), transparent),
-                var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 50px 30px;
-            border-radius: 8px;
-            text-align: center;
-            margin-bottom: 55px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-box::before {
-            content: "CLASSIFIED // TESTIGO CIEGO";
-            position: absolute;
-            top: 12px;
-            left: 15px;
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-        }
-
-        .hero-question {
-            font-size: clamp(1.5rem, 5vw, 2.2rem);
-            color: var(--accent);
-            margin: 20px 0 10px;
-            font-weight: bold;
-        }
-
-        .hero-description {
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 25px;
-        }
-
-        /* =========================
-           BOTONES
-        ========================= */
-
-        .btn {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-            padding: 12px 25px;
-            font-weight: bold;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--accent);
-            color: var(--bg-color);
-            box-shadow: 0 0 18px rgba(0,255,102,0.35);
-        }
-
-        .btn-small {
-            width: 100%;
-            padding: 10px;
-            font-size: 0.75rem;
-        }
-
-        /* =========================
-           SECCIONES
-        ========================= */
-
-        .section-title {
-            font-size: 1.35rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 10px;
-            margin: 55px 0 22px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* =========================
-           EXPEDIENTES
-        ========================= */
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 20px;
-            border-radius: 6px;
-            transition: 0.25s;
-        }
-
-        .card:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .card h3 {
-            font-size: 1rem;
-            margin: 12px 0 8px;
-        }
-
-        .card p {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-        }
-
-        .status-badge {
-            font-size: 0.65rem;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .status-verified {
-            background: rgba(0,255,102,0.12);
-            color: var(--accent);
-            border: 1px solid var(--accent);
-        }
-
-        .status-investigation {
-            background: rgba(255,204,0,0.12);
-            color: var(--warning);
-            border: 1px solid var(--warning);
-        }
-
-        /* =========================
-           BLOG
-        ========================= */
-
-        .blog-card {
-            min-height: 180px;
-        }
-
-        /* =========================
-           TIENDA / PRODUCTOS
-        ========================= */
-
-        .shop-intro {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 20px;
-            border-radius: 6px;
-            margin-bottom: 25px;
-        }
-
-        .shop-intro p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .shop-note {
-            color: var(--accent);
-            margin-top: 8px;
-            font-size: 0.75rem;
-        }
-
-        .store-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .store-item {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 7px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: 0.25s;
-        }
-
-        .store-item:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .product-content {
-            padding: 18px;
-        }
-
-        .product-category {
-            display: inline-block;
-            color: var(--accent);
-            font-size: 0.65rem;
-            border: 1px solid var(--accent);
-            padding: 3px 7px;
-            border-radius: 3px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .product-title {
-            font-size: 1rem;
-            margin-bottom: 8px;
-        }
-
-        .item-desc {
-            font-size: 0.76rem;
-            color: var(--text-muted);
-            min-height: 48px;
-        }
-
-        .product-bottom {
-            padding: 0 18px 18px;
-        }
-
-        .price {
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.15rem;
-            margin-bottom: 12px;
-        }
-
-        .external-note {
-            font-size: 0.62rem;
-            color: var(--text-muted);
-            text-align: center;
-            margin-top: 8px;
-        }
-
-        /* =========================
-           FILTROS
-        ========================= */
-
-        .shop-tools {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .shop-search {
-            flex: 1;
-            min-width: 220px;
-            background: var(--bg-color);
-            color: var(--text-main);
-            border: 1px solid var(--border);
-            padding: 12px;
-            border-radius: 4px;
-            outline: none;
-        }
-
-        .shop-search:focus {
-            border-color: var(--accent);
-        }
-
-        .filter-btn {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid var(--border);
-            padding: 10px 14px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-
-        /* =========================
-           FORO
-        ========================= */
-
-        .forum-box {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 25px;
-            border-radius: 6px;
-        }
-
-        .forum-input,
-        .forum-textarea {
-            width: 100%;
-            padding: 12px;
-            background: var(--bg-color);
-            border: 1px solid var(--border);
-            color: var(--text-main);
-            border-radius: 4px;
-            margin-bottom: 10px;
-            font-family: 'Courier New', Courier, monospace;
-            outline: none;
-        }
-
-        .forum-input:focus,
-        .forum-textarea:focus {
-            border-color: var(--accent);
-        }
-
-        .forum-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .forum-posts {
-            margin-top: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .post-card {
-            background: var(--bg-color);
-            border: 1px solid var(--border);
-            padding: 15px;
-            border-radius: 4px;
-        }
-
-        .post-author {
-            color: var(--accent);
-            font-size: 0.78rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .post-text {
-            font-size: 0.85rem;
-            color: var(--text-main);
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            text-align: center;
-            margin-top: 70px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            border-top: 1px dashed var(--border);
-            padding: 25px 0;
-        }
-
-        /* =========================
-           MÓVIL
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            body {
-                padding-top: 125px;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 12px;
-                padding: 12px;
-            }
-
-            .nav-links {
-                gap: 12px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-links a {
-                font-size: 0.68rem;
-            }
-
-            .hero-box {
-                padding: 45px 20px;
-            }
-
-            .store-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TESTIGO CIEGO MARKET — Productos que merecen ser investigados</title>
+
+<meta name="description"
+content="Testigo Ciego Market. Productos curiosos, tecnología, gadgets, hogar y objetos seleccionados.">
+
+<style>
+
+:root{
+    --bg:#070a0f;
+    --panel:#0e141d;
+    --panel2:#121a25;
+    --border:#263242;
+    --green:#00ff73;
+    --green2:#00c95a;
+    --white:#f4f7f5;
+    --muted:#8c98a8;
+    --red:#ff3045;
+    --yellow:#ffd43b;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+    radial-gradient(circle at 50% -10%,rgba(0,255,115,.08),transparent 35%),
+    var(--bg);
+    color:var(--white);
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+/* =========================
+   NAV
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    background:rgba(7,10,15,.94);
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid var(--border);
+}
+
+.logo{
+    font-family:monospace;
+    font-weight:bold;
+    letter-spacing:2px;
+    color:var(--green);
+    font-size:18px;
+}
+
+.logo span{
+    color:white;
+}
+
+.menu{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.menu a{
+    color:var(--muted);
+    text-decoration:none;
+    font-size:13px;
+    transition:.2s;
+}
+
+.menu a:hover{
+    color:var(--green);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    padding:150px 20px 80px;
+    text-align:center;
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    color:var(--green);
+    border:1px solid var(--green);
+    padding:7px 13px;
+    border-radius:30px;
+    font-family:monospace;
+    font-size:11px;
+    letter-spacing:2px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(42px,8vw,80px);
+    line-height:.95;
+    letter-spacing:-4px;
+}
+
+.hero h1 span{
+    color:var(--green);
+}
+
+.hero p{
+    max-width:650px;
+    margin:25px auto;
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.button{
+    display:inline-block;
+    padding:14px 22px;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:13px;
+    transition:.25s;
+    cursor:pointer;
+}
+
+.primary{
+    background:var(--green);
+    color:#001508;
+}
+
+.primary:hover{
+    background:white;
+    transform:translateY(-2px);
+}
+
+.secondary{
+    border:1px solid var(--border);
+    color:white;
+}
+
+.secondary:hover{
+    border-color:var(--green);
+    color:var(--green);
+}
+
+/* =========================
+   TRUST
+========================= */
+
+.trust{
+    max-width:1100px;
+    margin:auto;
+    padding:0 20px 60px;
+}
+
+.trust-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.trust-card{
+    background:var(--panel);
+    border:1px solid var(--border);
+    padding:22px;
+    border-radius:8px;
+}
+
+.trust-card strong{
+    display:block;
+    color:var(--green);
+    margin-bottom:8px;
+}
+
+.trust-card p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+   STORE
+========================= */
+
+.store{
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px 100px;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:30px;
+    gap:20px;
+}
+
+.section-head h2{
+    font-family:monospace;
+    font-size:28px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+.search{
+    flex:1;
+    min-width:240px;
+    background:var(--panel);
+    color:white;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:14px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:var(--green);
+}
+
+.filter{
+    background:var(--panel);
+    color:var(--muted);
+    border:1px solid var(--border);
+    padding:12px 15px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.filter:hover,
+.filter.active{
+    color:var(--green);
+    border-color:var(--green);
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.product{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:9px;
+    overflow:hidden;
+    transition:.25s;
+    display:flex;
+    flex-direction:column;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+    border-color:var(--green);
+    box-shadow:0 10px 40px rgba(0,255,115,.07);
+}
+
+.product-image{
+    height:210px;
+    width:100%;
+    object-fit:cover;
+    background:#151b24;
+}
+
+.product-body{
+    padding:17px;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+.category{
+    color:var(--green);
+    font-family:monospace;
+    font-size:10px;
+    letter-spacing:1px;
+    margin-bottom:9px;
+}
+
+.product h3{
+    font-size:16px;
+    margin-bottom:9px;
+    line-height:1.3;
+}
+
+.description{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.6;
+    flex:1;
+}
+
+.product-info{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:18px 0 13px;
+}
+
+.price{
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.rating{
+    color:var(--yellow);
+    font-size:12px;
+}
+
+.buy{
+    width:100%;
+    text-align:center;
+    background:var(--green);
+    color:#001408;
+    padding:12px;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:12px;
+    transition:.2s;
+}
+
+.buy:hover{
+    background:white;
+}
+
+.external{
+    text-align:center;
+    color:#687383;
+    font-size:9px;
+    margin-top:8px;
+}
+
+/* =========================
+   FEATURED
+========================= */
+
+.featured{
+    max-width:1200px;
+    margin:0 auto 40px;
+    padding:0 20px;
+}
+
+.feature-box{
+    background:
+    linear-gradient(100deg,rgba(0,255,115,.08),transparent),
+    var(--panel);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:30px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+.feature-box img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:7px;
+}
+
+.feature-text small{
+    color:var(--green);
+    font-family:monospace;
+}
+
+.feature-text h2{
+    font-size:32px;
+    margin:12px 0;
+}
+
+.feature-text p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+/* =========================
+   NEWSLETTER
+========================= */
+
+.newsletter{
+    max-width:900px;
+    margin:0 auto 100px;
+    padding:40px 20px;
+    text-align:center;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:10px;
+}
+
+.newsletter h2{
+    font-family:monospace;
+    margin-bottom:10px;
+}
+
+.newsletter p{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.newsletter form{
+    display:flex;
+    max-width:550px;
+    margin:auto;
+}
+
+.newsletter input{
+    flex:1;
+    background:#070a0f;
+    color:white;
+    border:1px solid var(--border);
+    padding:14px;
+    outline:none;
+}
+
+.newsletter button{
+    background:var(--green);
+    border:0;
+    padding:0 20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:40px 20px;
+    text-align:center;
+    color:var(--muted);
+    font-size:11px;
+}
+
+footer strong{
+    color:var(--green);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .trust-grid{
+        grid-template-columns:1fr;
+    }
+
+    .feature-box{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        height:auto;
+        min-height:65px;
+        padding:12px 15px;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .menu{
+        gap:13px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .menu a{
+        font-size:10px;
+    }
+
+    .hero{
+        padding-top:150px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .section-head p{
+        margin-top:8px;
+    }
+
+    .newsletter form{
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .newsletter button{
+        padding:14px;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
+
 <!-- =========================
-     MENÚ
+     NAV
 ========================= -->
 
-<nav>
+<nav class="navbar">
 
-    <div class="nav-logo">
-        👁️ TESTIGO CIEGO
+    <div class="logo">
+        👁 TESTIGO <span>CIEGO</span>
     </div>
 
-    <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#expedientes">Expedientes</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#foro">Foro</a></li>
-        <li><a href="#tienda">Archivo Store</a></li>
+    <ul class="menu">
+
+        <li>
+            <a href="#inicio">Inicio</a>
+        </li>
+
+        <li>
+            <a href="#productos">Productos</a>
+        </li>
+
+        <li>
+            <a href="#oferta">Oferta</a>
+        </li>
+
+        <li>
+            <a href="#newsletter">Avisos</a>
+        </li>
+
     </ul>
 
 </nav>
 
 
-<div class="container" id="inicio">
+<!-- =========================
+     HERO
+========================= -->
 
-    <!-- =========================
-         CABECERA
-    ========================= -->
+<section class="hero" id="inicio">
 
-    <header>
+    <div class="badge">
+        ARCHIVO COMERCIAL // ONLINE
+    </div>
 
-        <span class="classified-tag">
-            ACCESO RESTRINGIDO
-        </span>
+    <h1>
+        NO LO BUSQUES.<br>
+        <span>ENCUÉNTRALO.</span>
+    </h1>
 
-        <h1>
-            TESTIGO CIEGO
-        </h1>
+    <p>
+        Productos curiosos, gadgets, tecnología y objetos que
+        encontramos durante nuestras investigaciones.
+        Seleccionamos los que creemos que realmente merecen una mirada.
+    </p>
 
-        <p class="tagline">
-            Aquí no creemos en historias. Investigamos evidencias.
-        </p>
+    <div class="hero-buttons">
 
-    </header>
+        <a
+            href="#productos"
+            class="button primary"
+        >
+            EXPLORAR PRODUCTOS
+        </a>
 
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
-    <div class="hero-box">
-
-        <div class="hero-question">
-            ¿QUÉ HAS VISTO?
-        </div>
-
-        <p class="hero-description">
-            Bienvenido al archivo de Testigo Ciego.
-            Investiga expedientes, comparte teorías y descubre
-            objetos seleccionados por nuestra comunidad.
-        </p>
-
-        <a href="#expedientes" class="btn">
-            ABRIR EXPEDIENTE
+        <a
+            href="#oferta"
+            class="button secondary"
+        >
+            OFERTA DESTACADA
         </a>
 
     </div>
 
-
-    <!-- =========================
-         EXPEDIENTES
-    ========================= -->
-
-    <div id="expedientes">
-
-        <h2 class="section-title">
-            📁 Expedientes Confidenciales
-        </h2>
-
-        <div class="grid">
-
-            <div class="card">
-
-                <span class="status-badge status-verified">
-                    Verificado
-                </span>
-
-                <h3>
-                    EXPEDIENTE #001 — CALVINE
-                </h3>
-
-                <p>
-                    Fotografía original analizada de uno de los
-                    casos OVNI más conocidos del Reino Unido.
-                </p>
-
-            </div>
+</section>
 
 
-            <div class="card">
+<!-- =========================
+     TRUST
+========================= -->
 
-                <span class="status-badge status-investigation">
-                    En Investigación
-                </span>
+<section class="trust">
 
-                <h3>
-                    EXPEDIENTE #002 — 3I/ATLAS
-                </h3>
+    <div class="trust-grid">
 
-                <p>
-                    Investigación sobre el tercer objeto interestelar
-                    confirmado y los datos publicados sobre su trayectoria.
-                </p>
+        <div class="trust-card">
 
-            </div>
+            <strong>01 // SELECCIÓN</strong>
 
-
-            <div class="card">
-
-                <span class="status-badge status-investigation">
-                    En Investigación
-                </span>
-
-                <h3>
-                    EXPEDIENTE #003 — CERN
-                </h3>
-
-                <p>
-                    Analizamos las teorías surgidas alrededor del CERN
-                    y comprobamos qué parte tiene respaldo documental.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =========================
-         BLOG
-    ========================= -->
-
-    <div id="blog">
-
-        <h2 class="section-title">
-            📝 Blog de Investigación
-        </h2>
-
-        <div class="grid">
-
-            <div class="card blog-card">
-
-                <h3>
-                    El enigma de las fotografías antiguas
-                </h3>
-
-                <p>
-                    Cómo diferenciar un montaje analógico de una
-                    fotografía realmente inexplicable.
-                </p>
-
-                <br>
-
-                <a href="#" class="btn btn-small">
-                    LEER INVESTIGACIÓN
-                </a>
-
-            </div>
-
-
-            <div class="card blog-card">
-
-                <h3>
-                    Inteligencia Artificial y realidad
-                </h3>
-
-                <p>
-                    Analizamos vídeos virales y buscamos señales
-                    que permitan determinar si son reales o generados.
-                </p>
-
-                <br>
-
-                <a href="#" class="btn btn-small">
-                    LEER INVESTIGACIÓN
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =========================
-         FORO
-    ========================= -->
-
-    <div id="foro">
-
-        <h2 class="section-title">
-            🗣️ Foro de Investigadores
-        </h2>
-
-        <div class="forum-box">
-
-            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:15px;">
-                Publica una teoría, avistamiento o evidencia
-                para que la comunidad pueda analizarla.
+            <p>
+                No mostramos miles de productos sin criterio.
+                Seleccionamos categorías y objetos interesantes.
             </p>
 
-            <input
-                type="text"
-                id="authorInput"
-                class="forum-input"
-                placeholder="Tu alias de investigador..."
+        </div>
+
+
+        <div class="trust-card">
+
+            <strong>02 // ENLACE DIRECTO</strong>
+
+            <p>
+                Cuando encuentras algo que te interesa,
+                puedes acceder directamente al proveedor.
+            </p>
+
+        </div>
+
+
+        <div class="trust-card">
+
+            <strong>03 // EXTERNO</strong>
+
+            <p>
+                La compra se realiza en el sitio del proveedor,
+                no dentro de Testigo Ciego.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURED
+========================= -->
+
+<section class="featured" id="oferta">
+
+    <div class="feature-box">
+
+        <img
+            src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=1200&q=85"
+            alt="Tecnología"
+        >
+
+        <div class="feature-text">
+
+            <small>
+                EXPEDIENTE COMERCIAL // 001
+            </small>
+
+            <h2>
+                Gadgets que parecen del futuro
+            </h2>
+
+            <p>
+                Hemos seleccionado algunos de los productos
+                tecnológicos más interesantes que puedes encontrar
+                en Alibaba.
+            </p>
+
+            <a
+                href="https://www.alibaba.com/trade/search?SearchText=smart+gadgets"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button primary"
+            >
+                VER GADGETS →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRODUCTOS
+========================= -->
+
+<section class="store" id="productos">
+
+    <div class="section-head">
+
+        <div>
+
+            <h2>
+                // PRODUCTOS
+            </h2>
+
+            <p>
+                Objetos encontrados en el archivo.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- BUSCADOR -->
+
+    <div class="controls">
+
+        <input
+            type="text"
+            id="search"
+            class="search"
+            placeholder="Buscar productos..."
+            onkeyup="searchProducts()"
+        >
+
+        <button
+            class="filter active"
+            onclick="filterProducts('all',this)"
+        >
+            TODOS
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterProducts('tech',this)"
+        >
+            TECNOLOGÍA
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterProducts('home',this)"
+        >
+            HOGAR
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterProducts('auto',this)"
+        >
+            AUTOMÓVIL
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterProducts('gaming',this)"
+        >
+            GAMING
+        </button>
+
+    </div>
+
+
+    <div class="products" id="products">
+
+
+        <!-- PRODUCTO 1 -->
+
+        <article
+            class="product"
+            data-category="tech"
+            data-name="mini proyector led portátil"
+        >
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=80"
+                alt="Mini proyector LED"
             >
 
-            <textarea
-                id="postInput"
-                class="forum-textarea"
-                placeholder="Escribe tu hallazgo o evidencia..."
-            ></textarea>
+            <div class="product-body">
 
-            <button
-                class="btn"
-                onclick="addPost()"
-                style="width:100%;"
-            >
-                TRANSMITIR EVIDENCIA
-            </button>
+                <div class="category">
+                    TECNOLOGÍA
+                </div>
 
+                <h3>
+                    Mini proyector LED portátil
+                </h3>
 
-            <div
-                class="forum-posts"
-                id="postsContainer"
-            >
+                <p class="description">
+                    Proyector compacto para cine en casa,
+                    gaming y contenido multimedia.
+                </p>
 
-                <div class="post-card">
+                <div class="product-info">
 
-                    <div class="post-author">
-                        @Observer_99
-                    </div>
+                    <span class="price">
+                        Desde 30 €
+                    </span>
 
-                    <div class="post-text">
-                        He revisado las coordenadas del expediente
-                        002. ¿Alguien más está investigando este caso?
-                    </div>
+                    <span class="rating">
+                        ★ 4.7
+                    </span>
 
+                </div>
+
+                <a
+                    href="https://www.alibaba.com/trade/search?SearchText=mini+projector+portable"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="buy"
+                >
+                    VER PRODUCTOS →
+                </a>
+
+                <div class="external">
+                    Ver resultados reales en Alibaba.com
                 </div>
 
             </div>
 
-        </div>
-
-    </div>
+        </article>
 
 
-    <!-- =========================
-         TIENDA / ARCHIVO
-    ========================= -->
+        <!-- PRODUCTO 2 -->
 
-    <div id="tienda">
+        <article
+            class="product"
+            data-category="tech"
+            data-name="gafas realidad virtual vr"
+        >
 
-        <h2 class="section-title">
-            🛒 Archivo Store
-        </h2>
-
-
-        <div class="shop-intro">
-
-            <p>
-                Objetos seleccionados para investigadores,
-                curiosos y seguidores de Testigo Ciego.
-            </p>
-
-            <p class="shop-note">
-                Algunos productos se ofrecen mediante enlaces externos.
-                La compra se realiza directamente con el proveedor.
-            </p>
-
-        </div>
-
-
-        <!-- BUSCADOR -->
-
-        <div class="shop-tools">
-
-            <input
-                type="text"
-                id="productSearch"
-                class="shop-search"
-                placeholder="Buscar producto..."
-                onkeyup="searchProducts()"
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=800&q=80"
+                alt="Gafas VR"
             >
 
-            <button
-                class="filter-btn active"
-                onclick="filterProducts('todos', this)"
-            >
-                TODOS
-            </button>
+            <div class="product-body">
 
-            <button
-                class="filter-btn"
-                onclick="filterProducts('tecnologia', this)"
-            >
-                TECNOLOGÍA
-            </button>
+                <div class="category">
+                    TECNOLOGÍA
+                </div>
 
-            <button
-                class="filter-btn"
-                onclick="filterProducts('hoga
+                <h3>
+                    Gafas de realidad virtual
+                </h3>
+
+                <p class="description">
+                    Descubre diferentes modelos de visores
+                    VR y accesorios para realidad virtual.
+                </p>
+
+                <div class="product-info">
+
+                    <span class="price">
+                        Desde 45 €
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.6
+                    </span>
+
+                </div>
+
+                <a
+                    href="https://www.alibaba.com/trade/search?SearchText=VR+headset"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="buy"
+                >
+                    VER PRODUCTOS →
+                </a>
+
+                <div class="external">
+                    Ver resultados reales en Alibaba.com
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 3 -->
+
+        <article
+            class="product"
+            data-category="home"
+            data-name="lampara led inteligente"
+        >
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80"
+                alt="Lámpara LED"
+            >
+
+            <div class="product-body">
+
+                <div class="category">
+                    HOGAR
+                </div>
+
+                <h3>
+                    Lámparas LED inteligentes
+                </h3>
+
+                <p class="description">
+                    Iluminación ambiental, RGB y lámparas
+                    inteligentes para escritorio o habitación.
+                </p>
+
+                <div class="product-info">
+
+                    <span class="price">
+                        Desde 15 €
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.8
+                    </span>
+
+                </div>
+
+                <a
+                    href="https://www.alibaba.com/trade/search?SearchText=smart+LED+lamp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="buy"
+                >
+                    VER PRODUCTOS →
+                </a>
+
+                <div class="external">
+                    Ver resultados reales en Alibaba.com
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 4 -->
+
+        <article
+            class="product"
+            data-category="auto"
+            data-name="accesorios coche"
+        >
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=80"
+                alt="Accesorios automóvil"
+            >
+
+            <div class="product-body">
+
+                <div class="category">
+                    AUTOMÓVIL
+                </div>
+
+                <h3>
+                    Gadgets para automóvil
+                </h3>
+
+                <p class="description">
+                    Accesorios tecnológicos y gadgets
+                    para mejorar tu vehículo.
+                </p>
+
+                <div class="product-info">
+
+                    <span class="price">
+                        Desde 10 €
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.7
+                    </span>
+
+                </div>
+
+                <a
+                    href="https://www.alibaba.com/trade/search?SearchText=car+gadgets+accessories"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="buy"
+                >
+                    VER PRODUCTOS →
+                </a>
+
+                <div class="external">
+                    Ver resultados reales en Alibaba.com
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 5 -->
+
+        <article
+            class="product"
+            data-category="gaming"
+            data-name="accesorios gaming"
+        >
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=800&q=80"
+                alt="Setup gaming"
+            >
+
+            <div class="product-body">
+
+                <div class="category">
+                    GAMING
+                </div>
+
+                <h3>
+                    Accesorios Gaming
+                </h3>
+
+                
