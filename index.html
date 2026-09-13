@@ -41,10 +41,9 @@
 
         .section-title { font-size: 1.4rem; border-left: 4px solid var(--accent); padding-left: 10px; margin: 50px 0 20px 0; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* Expedientes y Blog Grid */
+        /* Grid general */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px; }
         .card { background: var(--card-bg); border: 1px solid var(--border); padding: 20px; border-radius: 6px; transition: border-color 0.2s; }
-        .card:hover { border-color: var(--accent); }
         .card h3 { font-size: 1.1rem; margin-bottom: 10px; }
         .card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; }
 
@@ -52,29 +51,35 @@
         .status-verified { background: rgba(0,255,102,0.15); color: var(--accent); border: 1px solid var(--accent); }
         .status-investigation { background: rgba(255,204,0,0.15); color: #ffcc00; border: 1px solid #ffcc00; }
 
-        /* Tienda Mini */
-        .store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
-        .store-item { background: var(--card-bg); border: 1px solid var(--border); padding: 15px; border-radius: 6px; text-align: center; }
-        .store-item h4 { margin-bottom: 8px; font-size: 1rem; }
-        .price { color: var(--accent); font-weight: bold; margin-bottom: 10px; font-size: 0.9rem; }
+        /* Tienda Ropita y Merch */
+        .store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .store-item { background: var(--card-bg); border: 1px solid var(--border); padding: 20px; border-radius: 6px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; }
+        .store-item img { width: 100%; height: 160px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; border: 1px solid var(--border); }
+        .store-item h4 { margin-bottom: 5px; font-size: 1rem; color: var(--text-main); }
+        .price { color: var(--accent); font-weight: bold; margin: 10px 0; font-size: 1.1rem; }
+        .item-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; }
+
+        /* Foro Interactivo en Vivo */
+        .forum-box { background: var(--card-bg); border: 1px solid var(--border); padding: 25px; border-radius: 6px; }
+        .forum-input, .forum-textarea { width: 100%; padding: 12px; background: var(--bg-color); border: 1px solid var(--border); color: var(--text-main); border-radius: 4px; margin-bottom: 10px; font-family: 'Courier New', Courier, monospace; }
+        .forum-posts { margin-top: 25px; display: flex; flex-direction: column; gap: 15px; }
+        .post-card { background: var(--bg-color); border: 1px solid var(--border); padding: 15px; border-radius: 4px; }
+        .post-author { color: var(--accent); font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; }
+        .post-text { font-size: 0.9rem; color: var(--text-main); }
 
         footer { text-align: center; margin-top: 60px; font-size: 0.8rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 25px; padding-bottom: 25px; }
-
-        @media(max-width: 600px) {
-            .nav-links { display: none; } /* Simplificado para móviles estrechos */
-        }
     </style>
 </head>
 <body>
 
-    <!-- Menú Superior Profesional -->
+    <!-- Menú Superior -->
     <nav>
         <div class="nav-logo">👁️ TESTIGO CIEGO</div>
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#expedientes">Expedientes</a></li>
             <li><a href="#blog">Blog</a></li>
-            <li><a href="#foro">Comunidad</a></li>
+            <li><a href="#foro">Foro</a></li>
             <li><a href="#tienda">Tienda</a></li>
         </ul>
     </nav>
@@ -92,35 +97,29 @@
             <a href="#expedientes" class="btn">Abrir Expediente</a>
         </div>
 
-        <!-- 2. SECCIÓN DE INVESTIGACIONES / EXPEDIENTES -->
+        <!-- EXPEDIENTES -->
         <div id="expedientes">
             <h2 class="section-title">📁 Expedientes Confidenciales</h2>
-            
             <div class="grid">
                 <div class="card">
                     <span class="status-badge status-verified">Verificado</span>
                     <h3 style="margin-top: 10px;">EXPEDIENTE #001 — CALVINE</h3>
                     <p>Fotografía original analizada de un objeto enigmático sobre el agua y sus contornos anómalos.</p>
-                    <a href="#" style="color: var(--accent); font-size: 0.85rem; text-decoration: none;">Consultar Ficha →</a>
                 </div>
-
                 <div class="card">
                     <span class="status-badge status-investigation">En Investigación</span>
                     <h3 style="margin-top: 10px;">EXPEDIENTE #002 — 3I/ATLAS</h3>
                     <p>Desviaciones detectadas y trayectorias espaciales que no cuadran con la física oficial.</p>
-                    <a href="#" style="color: var(--accent); font-size: 0.85rem; text-decoration: none;">Consultar Ficha →</a>
                 </div>
-
                 <div class="card">
                     <span class="status-badge status-investigation">En Investigación</span>
                     <h3 style="margin-top: 10px;">EXPEDIENTE #003 — CERN</h3>
                     <p>Lecturas inusuales registradas durante colisiones de alta energía y anomalías temporales.</p>
-                    <a href="#" style="color: var(--accent); font-size: 0.85rem; text-decoration: none;">Consultar Ficha →</a>
                 </div>
             </div>
         </div>
 
-        <!-- 4. SECCIÓN BLOG -->
+        <!-- BLOG -->
         <div id="blog">
             <h2 class="section-title">📝 Blog de Investigación</h2>
             <div class="grid">
@@ -135,34 +134,69 @@
             </div>
         </div>
 
-        <!-- 5. SECCIÓN FORO / COMUNIDAD -->
+        <!-- FORO EN VIVO -->
         <div id="foro">
-            <h2 class="section-title">🗣️ Foro de la Comunidad</h2>
-            <div class="card" style="text-align: center; padding: 30px;">
-                <p style="margin-bottom: 15px; color: var(--text-main);">El acceso al archivo de debates y subida de evidencias por rangos de investigador está abierto para miembros registrados.</p>
-                <a href="#" class="btn" style="font-size: 0.8rem; padding: 8px 15px;">Acceder al Foro</a>
+            <h2 class="section-title">🗣️ Foro de Investigadores</h2>
+            <div class="forum-box">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Publica tu teoría o avistamiento anónimo para que la comunidad lo debata:</p>
+                <input type="text" id="authorInput" class="forum-input" placeholder="Tu alias de investigador (ej: Investigador_X)...">
+                <textarea id="postInput" class="forum-textarea" placeholder="Escribe tu hallazgo o evidencia..."></textarea>
+                <button class="btn" onclick="addPost()" style="width: 100%;">Transmitir Evidencia</button>
+                
+                <div class="forum-posts" id="postsContainer">
+                    <!-- Los mensajes aparecerán aquí en tiempo real -->
+                    <div class="post-card">
+                        <div class="post-author">@Observer_99</div>
+                        <div class="post-text">He revisado las coordenadas del expediente 002 y la lectura de radiación repunta a las 03:00 AM exactamente. ¿Alguien más lo ha notado?</div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- 6. TIENDA DE MERCHANDISING -->
+        <!-- TIENDA DE ROPA Y MERCHANDISING -->
         <div id="tienda">
-            <h2 class="section-title">💰 Archivo Tienda & Premium</h2>
+            <h2 class="section-title">💰 Archivo Tienda & Merch</h2>
             <div class="store-grid">
+                
                 <div class="store-item">
-                    <h4>Sudadera Oficial Testigo Ciego</h4>
-                    <p class="price">45.00 €</p>
-                    <button class="btn" style="font-size: 0.75rem; padding: 6px 10px; width: 100%;">Adquirir</button>
+                    <div>
+                        <div class="classified-tag" style="display:inline-block; margin-bottom:10px;">Textil</div>
+                        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=500&q=80" alt="Sudadera">
+                        <h4>Sudadera Oficial "Archivo Confidencial"</h4>
+                        <p class="item-desc">Algodón pesado negro lavado ácido con serigrafía reflectante en la espalda.</p>
+                    </div>
+                    <div>
+                        <p class="price">45.00 €</p>
+                        <button class="btn" style="width:100%; font-size:0.8rem; padding:8px;" onclick="alert('Añadido al carrito de avistamientos.')">Añadir al Carrito</button>
+                    </div>
                 </div>
+
                 <div class="store-item">
-                    <h4>Cuaderno de Campo (Físico)</h4>
-                    <p class="price">18.50 €</p>
-                    <button class="btn" style="font-size: 0.75rem; padding: 6px 10px; width: 100%;">Adquirir</button>
+                    <div>
+                        <div class="classified-tag" style="display:inline-block; margin-bottom:10px;">Textil</div>
+                        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80" alt="Camiseta">
+                        <h4>Camiseta "Testigo Ciego" (Edición Limitada)</h4>
+                        <p class="item-desc">Diseño exclusivo frontal con coordenadas del primer caso verificado.</p>
+                    </div>
+                    <div>
+                        <p class="price">24.99 €</p>
+                        <button class="btn" style="width:100%; font-size:0.8rem; padding:8px;" onclick="alert('Añadido al carrito de avistamientos.')">Añadir al Carrito</button>
+                    </div>
                 </div>
+
                 <div class="store-item">
-                    <h4>Expediente 013 (Digital Premium)</h4>
-                    <p class="price">4.99 €</p>
-                    <button class="btn" style="font-size: 0.75rem; padding: 6px 10px; width: 100%;">Desbloquear</button>
+                    <div>
+                        <div class="classified-tag" style="display:inline-block; margin-bottom:10px;">Coleccionable</div>
+                        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=500&q=80" alt="Cuaderno">
+                        <h4>Cuaderno de Campo de Investigador</h4>
+                        <p class="item-desc>Tapa dura efecto cuero con sellos de archivo y páginas cuadriculadas.</p>
+                    </div>
+                    <div>
+                        <p class="price">18.50 €</p>
+                        <button class="btn" style="width:100%; font-size:0.8rem; padding:8px;" onclick="alert('Añadido al carrito de avistamientos.')">Añadir al Carrito</button>
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -171,5 +205,32 @@
         </footer>
     </div>
 
+    <script>
+        // Sistema interactivo para el Foro en vivo
+        function addPost() {
+            const author = document.getElementById('authorInput').value.trim();
+            const text = document.getElementById('postInput').value.trim();
+            const container = document.getElementById('postsContainer');
+
+            if(!author || !text) {
+                alert('Por favor, indica un alias y escribe una evidencia antes de transmitir.');
+                return;
+            }
+
+            const newCard = document.createElement('div');
+            newCard.className = 'post-card';
+            newCard.innerHTML = `
+                <div class="post-author">@${escapeHtml(author)}</div>
+                <div class="post-text">${escapeHtml(text)}</div>
+            `;
+
+            container.prepend(newCard);
+            document.getElementById('postInput').value = '';
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+    </script>
 </body>
 </html>
