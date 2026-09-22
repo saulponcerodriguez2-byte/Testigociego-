@@ -1,65 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Testigo Ciego | Archivo de Investigaciones</title>
+<title>Testigo Ciego | Objetos bajo investigación</title>
 
-<meta name="description" content="Testigo Ciego — Archivo de investigaciones, objetos, tecnología, misterio y productos seleccionados.">
+<meta name="description"
+content="Testigo Ciego investiga objetos, tecnología, juegos, gadgets y productos curiosos. Descubre nuestros expedientes de productos y accede a ellos en Amazon.">
+
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://saulponcerodriguez2-byte.github.io/Testigociego-/">
+
+<link rel="canonical"
+href="https://saulponcerodriguez2-byte.github.io/Testigociego-/">
 
 <style>
+
 :root{
-  --bg:#050706;
-  --bg2:#080c09;
-  --panel:#0c120f;
-  --panel2:#101713;
-  --green:#78ff9b;
-  --green2:#42dc72;
-  --text:#f1f4ef;
-  --muted:#89958d;
-  --line:#26322b;
-  --line2:#38513f;
-  --cream:#e8e6dc;
+--bg:#050606;
+--bg2:#080b09;
+--panel:#0c110f;
+--panel2:#101713;
+--green:#78ff9b;
+--green2:#42dc72;
+--cream:#e8e6dc;
+--text:#f2f4ef;
+--muted:#89948d;
+--line:#253129;
+--line2:#34483a;
 }
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-  background:
-    radial-gradient(circle at 50% -15%,rgba(48,105,65,.30),transparent 35%),
-    linear-gradient(180deg,#050706 0%,#070a08 100%);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-  overflow-x:hidden;
+background:
+radial-gradient(circle at 50% -10%,rgba(45,100,62,.30),transparent 35%),
+linear-gradient(180deg,#050606 0%,#070a08 100%);
+color:var(--text);
+font-family:Arial,Helvetica,sans-serif;
+overflow-x:hidden;
 }
 
 body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.025;
-  background-image:
-    linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px);
-  background-size:40px 40px;
-  z-index:0;
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+opacity:.035;
+background-image:
+linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
+background-size:40px 40px;
+z-index:0;
 }
 
 a{
-  color:inherit;
-  text-decoration:none;
+text-decoration:none;
+color:inherit;
 }
 
 /* =========================
@@ -67,92 +74,87 @@ a{
 ========================= */
 
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(5,7,6,.92);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(5,7,6,.90);
+backdrop-filter:blur(18px);
+border-bottom:1px solid var(--line);
 }
 
 .nav{
-  max-width:1250px;
-  margin:auto;
-  padding:13px 22px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+max-width:1250px;
+margin:auto;
+padding:14px 22px;
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:900;
-  letter-spacing:2.5px;
-  font-size:14px;
+font-weight:900;
+letter-spacing:2.5px;
+display:flex;
+align-items:center;
+gap:12px;
+font-size:15px;
 }
 
 .logo-mark{
-  width:39px;
-  height:39px;
-  position:relative;
-  display:grid;
-  place-items:center;
-  background:#07100a;
-  border:1px solid var(--green);
+width:38px;
+height:38px;
+border:1px solid var(--green);
+display:grid;
+place-items:center;
+color:var(--green);
+position:relative;
+background:#07100a;
 }
 
 .logo-mark:before,
 .logo-mark:after{
-  content:"";
-  position:absolute;
-  border:1px solid rgba(120,255,155,.28);
+content:"";
+position:absolute;
+border:1px solid rgba(120,255,155,.35);
 }
 
 .logo-mark:before{
-  inset:5px;
+inset:5px;
 }
 
 .logo-mark:after{
-  inset:10px;
+inset:10px;
 }
 
 .logo-mark span{
-  position:relative;
-  z-index:2;
-  color:var(--green);
-  font-size:19px;
+font-size:17px;
+position:relative;
+z-index:2;
 }
 
-.logo-text{
-  display:flex;
-  flex-direction:column;
-  gap:3px;
-}
-
-.logo-sub{
-  font-size:7px;
-  color:#657168;
-  letter-spacing:2px;
-  font-weight:700;
+.logo small{
+display:block;
+font-size:7px;
+letter-spacing:2px;
+color:#66736b;
+margin-top:2px;
 }
 
 nav{
-  display:flex;
-  gap:28px;
+display:flex;
+gap:28px;
 }
 
 nav a{
-  color:#8c9890;
-  font-size:10px;
-  letter-spacing:1.7px;
-  text-transform:uppercase;
-  transition:.2s;
+font-size:11px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+color:#89958d;
+transition:.2s;
 }
 
 nav a:hover{
-  color:var(--green);
+color:var(--green);
 }
 
 /* =========================
@@ -160,149 +162,112 @@ nav a:hover{
 ========================= */
 
 .hero{
-  min-height:650px;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:90px 20px;
+position:relative;
+min-height:650px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:90px 20px;
+overflow:hidden;
 }
 
 .hero:before{
-  content:"";
-  position:absolute;
-  width:560px;
-  height:560px;
-  border:1px solid rgba(120,255,155,.08);
-  transform:rotate(45deg);
+content:"";
+position:absolute;
+width:520px;
+height:520px;
+border:1px solid rgba(120,255,155,.08);
+transform:rotate(45deg);
 }
 
 .hero:after{
-  content:"";
-  position:absolute;
-  width:760px;
-  height:760px;
-  border:1px solid rgba(120,255,155,.035);
-  transform:rotate(45deg);
-}
-
-.hero-grid{
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(rgba(120,255,155,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(120,255,155,.025) 1px,transparent 1px);
-  background-size:70px 70px;
-  mask-image:linear-gradient(to bottom,black,transparent 80%);
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+border:1px solid rgba(120,255,155,.035);
+transform:rotate(45deg);
 }
 
 .hero-content{
-  position:relative;
-  z-index:5;
-  max-width:900px;
+position:relative;
+z-index:2;
+max-width:900px;
 }
 
 .classified{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  border:1px solid #31583c;
-  background:rgba(7,16,10,.75);
-  color:var(--green);
-  padding:8px 14px;
-  font-size:9px;
-  letter-spacing:2.5px;
-  margin-bottom:28px;
+display:inline-flex;
+align-items:center;
+gap:9px;
+border:1px solid #31583c;
+color:var(--green);
+padding:8px 14px;
+font-size:9px;
+letter-spacing:2.5px;
+margin-bottom:28px;
+background:rgba(7,16,10,.65);
 }
 
 .classified:before{
-  content:"";
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:var(--green);
-  box-shadow:0 0 12px var(--green);
+content:"";
+width:6px;
+height:6px;
+border-radius:50%;
+background:var(--green);
+box-shadow:0 0 12px var(--green);
 }
 
-.hero h1{
-  font-size:clamp(48px,8vw,90px);
-  line-height:.9;
-  letter-spacing:-5px;
-  font-weight:900;
-  margin-bottom:28px;
+h1{
+font-size:clamp(48px,8vw,90px);
+line-height:.91;
+letter-spacing:-5px;
+margin-bottom:27px;
+font-weight:900;
 }
 
-.hero h1 span{
-  color:var(--green);
+h1 span{
+color:var(--green);
 }
 
-.hero-description{
-  max-width:670px;
-  margin:auto;
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.7;
-}
-
-.hero-meta{
-  margin-top:22px;
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  flex-wrap:wrap;
-  color:#59665e;
-  font-size:8px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-.hero-meta span{
-  position:relative;
-}
-
-.hero-meta span:not(:last-child):after{
-  content:"";
-  position:absolute;
-  right:-14px;
-  top:50%;
-  width:3px;
-  height:3px;
-  border-radius:50%;
-  background:var(--green);
+.hero p{
+font-size:16px;
+line-height:1.7;
+color:var(--muted);
+max-width:650px;
+margin:auto;
 }
 
 .buttons{
-  margin-top:35px;
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
+margin-top:34px;
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
 }
 
 .btn{
-  padding:14px 23px;
-  border:1px solid var(--green);
-  font-size:10px;
-  letter-spacing:1px;
-  font-weight:bold;
-  transition:.25s;
+padding:14px 23px;
+font-size:11px;
+letter-spacing:1px;
+font-weight:bold;
+border:1px solid var(--green);
+transition:.25s;
 }
 
 .primary{
-  background:var(--green);
-  color:#061008;
+background:var(--green);
+color:#061008;
 }
 
 .secondary{
-  background:rgba(8,16,11,.6);
-  color:var(--green);
+color:var(--green);
+background:rgba(10,20,13,.5);
 }
 
 .btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(120,255,155,.12);
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(115,255,152,.12);
 }
 
 /* =========================
@@ -310,35 +275,34 @@ nav a:hover{
 ========================= */
 
 section{
-  position:relative;
-  z-index:1;
-  max-width:1250px;
-  margin:auto;
-  padding:85px 22px;
+position:relative;
+z-index:1;
+max-width:1250px;
+margin:auto;
+padding:85px 22px;
 }
 
 .section-title{
-  margin-bottom:32px;
+margin-bottom:32px;
 }
 
 .section-title small{
-  color:var(--green);
-  font-size:9px;
-  letter-spacing:3px;
+color:var(--green);
+font-size:9px;
+letter-spacing:3px;
 }
 
 .section-title h2{
-  font-size:38px;
-  letter-spacing:-1.5px;
-  margin-top:9px;
+font-size:38px;
+margin-top:9px;
+letter-spacing:-1.5px;
 }
 
 .section-title p{
-  max-width:680px;
-  margin-top:9px;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.6;
+color:var(--muted);
+margin-top:9px;
+line-height:1.6;
+max-width:650px;
 }
 
 /* =========================
@@ -346,44 +310,17 @@ section{
 ========================= */
 
 .notice{
-  border-left:2px solid var(--green);
-  background:linear-gradient(90deg,#0b120d,#080c0a);
-  padding:17px 19px;
-  margin-bottom:30px;
-  color:#929d95;
-  font-size:12px;
-  line-height:1.6;
+border-left:2px solid var(--green);
+background:linear-gradient(90deg,#0b120d,#080c0a);
+padding:17px 19px;
+font-size:12px;
+line-height:1.6;
+color:#929d95;
+margin-bottom:28px;
 }
 
 .notice strong{
-  color:var(--green);
-}
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-box{
-  margin-bottom:25px;
-}
-
-.search{
-  width:100%;
-  padding:16px;
-  border:1px solid var(--line);
-  background:#090e0c;
-  color:white;
-  outline:none;
-  font-size:13px;
-}
-
-.search::placeholder{
-  color:#58635c;
-}
-
-.search:focus{
-  border-color:var(--green);
-  box-shadow:0 0 0 2px rgba(120,255,155,.05);
+color:var(--green);
 }
 
 /* =========================
@@ -391,192 +328,215 @@ section{
 ========================= */
 
 .products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
 }
 
 .product{
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(180deg,#101612,#080c0a);
-  border:1px solid var(--line);
-  transition:.3s;
+background:linear-gradient(180deg,#101612,#080c0a);
+border:1px solid var(--line);
+border-radius:4px;
+overflow:hidden;
+transition:.3s;
+position:relative;
+}
+
+.product:after{
+content:"";
+position:absolute;
+inset:7px;
+border:1px solid rgba(120,255,155,.035);
+pointer-events:none;
 }
 
 .product:hover{
-  transform:translateY(-6px);
-  border-color:var(--line2);
-  box-shadow:0 20px 45px rgba(0,0,0,.45);
+transform:translateY(-6px);
+border-color:#42634c;
+box-shadow:0 20px 45px rgba(0,0,0,.45);
 }
 
 .product-visual{
-  height:230px;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:
-    radial-gradient(circle at center,rgba(34,75,48,.65),#090d0b 68%);
+height:230px;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+overflow:hidden;
+background:
+radial-gradient(circle at center,rgba(34,75,48,.65),#090d0b 68%);
 }
 
 .product-visual:before{
-  content:"";
-  position:absolute;
-  width:175px;
-  height:175px;
-  border:1px solid rgba(120,255,155,.13);
-  transform:rotate(45deg);
-}
-
-.product-visual:after{
-  content:"";
-  position:absolute;
-  inset:10px;
-  border:1px solid rgba(120,255,155,.035);
+content:"";
+position:absolute;
+width:175px;
+height:175px;
+border:1px solid rgba(120,255,155,.13);
+transform:rotate(45deg);
 }
 
 .product-visual img{
-  position:relative;
-  z-index:2;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  padding:18px;
+position:relative;
+z-index:2;
 }
 
 .case-number{
-  position:absolute;
-  top:12px;
-  left:12px;
-  z-index:5;
-  padding:5px 8px;
-  background:#07100a;
-  border:1px solid #31583c;
-  color:var(--green);
-  font-size:8px;
-  letter-spacing:1.5px;
+position:absolute;
+top:12px;
+left:12px;
+font-size:8px;
+letter-spacing:1.5px;
+color:var(--green);
+border:1px solid #31583c;
+padding:5px 8px;
+background:#07100a;
+z-index:4;
 }
 
 .product-body{
-  padding:20px;
+padding:20px;
 }
 
 .category{
-  color:var(--green);
-  font-size:9px;
-  letter-spacing:2px;
-  text-transform:uppercase;
+font-size:9px;
+letter-spacing:2px;
+color:var(--green);
+text-transform:uppercase;
 }
 
 .product h3{
-  font-size:18px;
-  margin:9px 0 11px;
+font-size:18px;
+margin:9px 0 11px;
 }
 
 .product-description{
-  color:#89958d;
-  font-size:12px;
-  line-height:1.6;
-  min-height:75px;
+color:#89958d;
+font-size:12px;
+line-height:1.6;
+min-height:75px;
 }
 
 .specs{
-  margin:15px 0;
-  padding-top:14px;
-  border-top:1px solid var(--line);
+margin:15px 0;
+padding-top:14px;
+border-top:1px solid var(--line);
 }
 
 .specs div{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin:7px 0;
-  font-size:11px;
+display:flex;
+justify-content:space-between;
+gap:10px;
+font-size:11px;
+margin:7px 0;
 }
 
 .specs span:first-child{
-  color:#69756d;
+color:#69756d;
 }
 
 .specs span:last-child{
-  color:#c6cec8;
-  text-align:right;
+color:#c6cec8;
+text-align:right;
 }
 
 .amazon{
-  display:block;
-  padding:12px;
-  margin-top:15px;
-  background:var(--green);
-  color:#061008;
-  text-align:center;
-  font-size:10px;
-  letter-spacing:.7px;
-  font-weight:bold;
-  transition:.2s;
+display:block;
+background:var(--green);
+color:#061008;
+text-align:center;
+font-size:11px;
+letter-spacing:.7px;
+font-weight:bold;
+padding:12px;
+margin-top:15px;
+transition:.2s;
 }
 
 .amazon:hover{
-  background:#a0ffb8;
+background:#a0ffb8;
 }
 
 .disclaimer{
-  margin-top:9px;
-  color:#68736c;
-  text-align:center;
-  font-size:9px;
+font-size:9px;
+color:#68736c;
+text-align:center;
+margin-top:9px;
 }
 
 /* =========================
-   BLOG
+   SEARCH
+========================= */
+
+.search-box{
+margin-bottom:25px;
+}
+
+.search{
+width:100%;
+background:#090e0c;
+border:1px solid var(--line);
+color:white;
+padding:16px;
+border-radius:3px;
+outline:none;
+font-size:13px;
+}
+
+.search:focus{
+border-color:var(--green);
+box-shadow:0 0 0 2px rgba(120,255,155,.06);
+}
+
+/* =========================
+   BLOG / EXPEDIENTES
 ========================= */
 
 .blog{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
 }
 
 .blog-card{
-  position:relative;
-  padding:25px;
-  background:linear-gradient(180deg,#101612,#090d0b);
-  border:1px solid var(--line);
-  transition:.25s;
-}
-
-.blog-card:before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:35px;
-  height:2px;
-  background:var(--green);
+background:linear-gradient(180deg,#101612,#090d0b);
+border:1px solid var(--line);
+border-radius:4px;
+padding:25px;
+position:relative;
+transition:.25s;
 }
 
 .blog-card:hover{
-  transform:translateY(-4px);
-  border-color:var(--line2);
+border-color:#42634c;
+transform:translateY(-4px);
+}
+
+.blog-card:before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:35px;
+height:2px;
+background:var(--green);
 }
 
 .blog-card small{
-  color:var(--green);
-  font-size:9px;
-  letter-spacing:2px;
+color:var(--green);
+letter-spacing:2px;
+font-size:9px;
 }
 
 .blog-card h3{
-  margin:12px 0;
-  font-size:18px;
+margin:12px 0;
+font-size:18px;
 }
 
 .blog-card p{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.65;
+color:var(--muted);
+font-size:13px;
+line-height:1.65;
 }
 
 /* =========================
@@ -584,15 +544,15 @@ section{
 ========================= */
 
 .ad{
-  height:120px;
-  margin:40px 0;
-  border:1px dashed #28352d;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#4c5950;
-  font-size:9px;
-  letter-spacing:2px;
+height:120px;
+border:1px dashed #28352d;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#4c5950;
+font-size:9px;
+letter-spacing:2px;
+margin:40px 0;
 }
 
 /* =========================
@@ -600,37 +560,36 @@ section{
 ========================= */
 
 footer{
-  position:relative;
-  z-index:1;
-  border-top:1px solid var(--line);
-  padding:45px 20px;
-  color:#68736c;
+border-top:1px solid var(--line);
+padding:45px 20px;
+color:#68736c;
+position:relative;
+z-index:1;
 }
 
 .footer{
-  max-width:1250px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  flex-wrap:wrap;
+max-width:1250px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+gap:20px;
+flex-wrap:wrap;
 }
 
 .footer strong{
-  color:#cbd2cd;
-  font-size:12px;
-  letter-spacing:2px;
+color:#cbd2cd;
+letter-spacing:2px;
+font-size:12px;
 }
 
 .footer-links{
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-  font-size:10px;
+display:flex;
+gap:20px;
+font-size:11px;
 }
 
 .footer-links a:hover{
-  color:var(--green);
+color:var(--green);
 }
 
 /* =========================
@@ -639,496 +598,889 @@ footer{
 
 @media(max-width:1000px){
 
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
+.products{
+grid-template-columns:repeat(2,1fr);
+}
 
 }
 
 @media(max-width:650px){
 
-  nav{
-    display:none;
-  }
+nav{
+display:none;
+}
 
-  .nav{
-    padding:12px 15px;
-  }
+.nav{
+padding:12px 15px;
+}
 
-  .logo{
-    font-size:12px;
-  }
+.logo{
+font-size:13px;
+}
 
-  .logo-mark{
-    width:35px;
-    height:35px;
-  }
+.logo-mark{
+width:34px;
+height:34px;
+}
 
-  .hero{
-    min-height:600px;
-    padding:70px 18px;
-  }
+.hero{
+min-height:590px;
+padding:70px 18px;
+}
 
-  .hero:before{
-    width:350px;
-    height:350px;
-  }
+.hero:before{
+width:350px;
+height:350px;
+}
 
-  .hero:after{
-    width:480px;
-    height:480px;
-  }
+.hero:after{
+width:480px;
+height:480px;
+}
 
-  .hero h1{
-    font-size:48px;
-    letter-spacing:-3px;
-  }
+h1{
+font-size:48px;
+letter-spacing:-3px;
+}
 
-  .hero-description{
-    font-size:14px;
-  }
+.hero p{
+font-size:14px;
+}
 
-  .hero-meta{
-    gap:15px;
-  }
+section{
+padding:60px 15px;
+}
 
-  .hero-meta span:not(:last-child):after{
-    display:none;
-  }
+.section-title h2{
+font-size:30px;
+}
 
-  section{
-    padding:60px 15px;
-  }
+.products{
+grid-template-columns:1fr;
+}
 
-  .section-title h2{
-    font-size:30px;
-  }
-
-  .products{
-    grid-template-columns:1fr;
-  }
-
-  .blog{
-    grid-template-columns:1fr;
-  }
+.blog{
+grid-template-columns:1fr;
+}
 
 }
+
 </style>
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:
+radial-gradient(circle at 50% -20%,#153522 0,#050707 45%);
+color:var(--text);
+font-family:Arial,Helvetica,sans-serif;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(5,7,7,.94);
+backdrop-filter:blur(14px);
+border-bottom:1px solid var(--line);
+}
+
+.nav{
+max-width:1200px;
+margin:auto;
+padding:16px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-weight:900;
+letter-spacing:2px;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-mark{
+width:34px;
+height:34px;
+border:2px solid var(--green);
+display:grid;
+place-items:center;
+color:var(--green);
+transform:rotate(45deg);
+}
+
+.logo-mark span{
+transform:rotate(-45deg);
+}
+
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+font-size:14px;
+color:#aab5ae;
+}
+
+nav a:hover{
+color:var(--green);
+}
+
+/* HERO */
+
+.hero{
+min-height:570px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:70px 20px;
+}
+
+.hero-content{
+max-width:850px;
+}
+
+.classified{
+display:inline-block;
+border:1px solid #31583c;
+color:var(--green);
+padding:7px 14px;
+border-radius:30px;
+font-size:11px;
+letter-spacing:2px;
+margin-bottom:25px;
+}
+
+h1{
+font-size:clamp(45px,8vw,82px);
+line-height:.95;
+letter-spacing:-4px;
+margin-bottom:25px;
+}
+
+h1 span{
+color:var(--green);
+}
+
+.hero p{
+font-size:18px;
+color:var(--muted);
+max-width:650px;
+margin:auto;
+}
+
+.buttons{
+margin-top:32px;
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 22px;
+border-radius:8px;
+font-weight:bold;
+border:1px solid var(--green);
+transition:.2s;
+}
+
+.primary{
+background:var(--green);
+color:#061008;
+}
+
+.secondary{
+color:var(--green);
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+/* SECTIONS */
+
+section{
+max-width:1200px;
+margin:auto;
+padding:70px 20px;
+}
+
+.section-title{
+margin-bottom:30px;
+}
+
+.section-title small{
+color:var(--green);
+font-size:11px;
+letter-spacing:2px;
+}
+
+.section-title h2{
+font-size:34px;
+margin-top:7px;
+}
+
+.section-title p{
+color:var(--muted);
+margin-top:8px;
+}
+
+/* NOTICE */
+
+.notice{
+border:1px solid #28362d;
+background:#0a100c;
+padding:17px;
+border-radius:9px;
+font-size:13px;
+color:#929d95;
+margin-bottom:28px;
+}
+
+.notice strong{
+color:var(--green);
+}
+
+/* PRODUCTS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.product{
+background:linear-gradient(180deg,#111817,#090d0c);
+border:1px solid var(--line);
+border-radius:13px;
+overflow:hidden;
+transition:.25s;
+}
+
+.product:hover{
+transform:translateY(-6px);
+border-color:#3c6648;
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+.product-visual{
+height:230px;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+overflow:hidden;
+background:
+radial-gradient(circle at center,#193b27 0,#0a0f0c 65%);
+}
+
+.product-visual:before{
+content:"";
+position:absolute;
+width:170px;
+height:170px;
+border:1px solid rgba(115,255,152,.18);
+border-radius:50%;
+}
+
+.visual-icon{
+font-size:70px;
+position:relative;
+z-index:2;
+filter:drop-shadow(0 0 20px rgba(115,255,152,.25));
+}
+
+.case-number{
+position:absolute;
+top:12px;
+left:12px;
+font-size:10px;
+letter-spacing:1px;
+color:var(--green);
+border:1px solid #31583c;
+padding:5px 8px;
+border-radius:4px;
+background:#07100a;
+}
+
+.product-body{
+padding:20px;
+}
+
+.category{
+font-size:10px;
+letter-spacing:1.5px;
+color:var(--green);
+text-transform:uppercase;
+}
+
+.product h3{
+font-size:19px;
+margin:8px 0 10px;
+}
+
+.product-description{
+color:#89958d;
+font-size:13px;
+min-height:75px;
+}
+
+.specs{
+margin:15px 0;
+padding-top:14px;
+border-top:1px solid var(--line);
+}
+
+.specs div{
+display:flex;
+justify-content:space-between;
+gap:10px;
+font-size:12px;
+margin:7px 0;
+}
+
+.specs span:first-child{
+color:#69756d;
+}
+
+.specs span:last-child{
+color:#c6cec8;
+text-align:right;
+}
+
+.amazon{
+display:block;
+background:var(--green);
+color:#061008;
+text-align:center;
+font-weight:bold;
+padding:12px;
+border-radius:7px;
+margin-top:15px;
+}
+
+.amazon:hover{
+background:#a0ffb8;
+}
+
+.disclaimer{
+font-size:10px;
+color:#68736c;
+text-align:center;
+margin-top:9px;
+}
+
+/* SEARCH */
+
+.search-box{
+margin-bottom:25px;
+}
+
+.search{
+width:100%;
+background:#0b100f;
+border:1px solid var(--line);
+color:white;
+padding:15px;
+border-radius:8px;
+outline:none;
+}
+
+.search:focus{
+border-color:var(--green);
+}
+
+/* BLOG */
+
+.blog{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.blog-card{
+background:var(--panel);
+border:1px solid var(--line);
+border-radius:10px;
+padding:23px;
+}
+
+.blog-card small{
+color:var(--green);
+letter-spacing:1px;
+}
+
+.blog-card h3{
+margin:10px 0;
+}
+
+.blog-card p{
+color:var(--muted);
+font-size:14px;
+}
+
+/* ADS */
+
+.ad{
+height:120px;
+border:1px dashed #28352d;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#4c5950;
+font-size:11px;
+letter-spacing:1px;
+margin:40px 0;
+}
+
+/* FOOTER */
+
+footer{
+border-top:1px solid var(--line);
+padding:45px 20px;
+color:#68736c;
+}
+
+.footer{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.footer-links{
+display:flex;
+gap:20px;
+}
+
+.footer-links a:hover{
+color:var(--green);
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+.products{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:650px){
+
+nav{
+display:none;
+}
+
+.products{
+grid-template-columns:1fr;
+}
+
+.blog{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+section{
+padding:55px 15px;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
+
 <header>
-  <div class="nav">
 
-    <a href="#" class="logo">
-      <div class="logo-mark">
-        <span>△</span>
-      </div>
+<div class="nav">
 
-      <div class="logo-text">
-        TESTIGO CIEGO
-        <span class="logo-sub">ARCHIVO DE INVESTIGACIONES</span>
-      </div>
-    </a>
+<a href="#" class="logo">
 
-    <nav>
-      <a href="#productos">Productos</a>
-      <a href="#expedientes">Expedientes</a>
-      <a href="#investigaciones">Investigaciones</a>
-    </nav>
+<div class="logo-mark">
+<span>△</span>
+</div>
 
-  </div>
+TESTIGO CIEGO
+
+</a>
+
+<nav>
+
+<a href="#productos">Productos</a>
+<a href="#expedientes">Expedientes</a>
+<a href="#investigaciones">Investigaciones</a>
+
+</nav>
+
+</div>
+
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
-<main>
+<div class="hero">
 
-<section class="hero">
+<div class="hero-content">
 
-  <div class="hero-grid"></div>
+<div class="classified">
+ARCHIVO DIGITAL · TESTIGO CIEGO
+</div>
 
-  <div class="hero-content">
+<h1>
+OBJETOS<br>
+<span>BAJO INVESTIGACIÓN</span>
+</h1>
 
-    <div class="classified">
-      ARCHIVO DIGITAL · TESTIGO CIEGO
-    </div>
+<p>
+No todo lo interesante aparece en las noticias.
+Aquí reunimos productos, tecnología y objetos que merecen ser investigados.
+</p>
 
-    <h1>
-      NO TODO ES<br>
-      <span>LO QUE PARECE</span>
-    </h1>
+<div class="buttons">
 
-    <p class="hero-description">
-      Investigaciones, objetos, tecnología, misterio y preguntas que merecen ser analizadas antes de sacar conclusiones.
-    </p>
+<a class="btn primary" href="#productos">
+ABRIR ARCHIVO
+</a>
 
-    <div class="hero-meta">
-      <span>ARCHIVO ABIERTO</span>
-      <span>VERIFICACIÓN</span>
-      <span>INVESTIGACIÓN</span>
-    </div>
+<a class="btn secondary" href="#investigaciones">
+VER INVESTIGACIONES
+</a>
 
-    <div class="buttons">
-      <a class="btn primary" href="#productos">
-        ABRIR ARCHIVO
-      </a>
+</div>
 
-      <a class="btn secondary" href="#investigaciones">
-        VER INVESTIGACIONES
-      </a>
-    </div>
+</div>
 
-  </div>
-
-</section>
+</div>
 
 
-<!-- =========================
-     PRODUCTOS
-========================= -->
+<!-- PRODUCTOS -->
 
 <section id="productos">
 
-  <div class="section-title">
-    <small>ARCHIVO · OBJETOS</small>
-    <h2>Objetos bajo investigación</h2>
-    <p>
-      Productos seleccionados por su relación con investigación, observación, misterio, tecnología y entretenimiento.
-    </p>
-  </div>
+<div class="section-title">
 
-  <div class="notice">
-    <strong>NOTA DEL ARCHIVO:</strong>
-    Algunos enlaces son enlaces de afiliado. Si realizas una compra desde ellos, Testigo Ciego puede recibir una comisión sin coste adicional para ti.
-  </div>
+<small>ARCHIVO 001</small>
 
-  <div class="search-box">
-    <input
-      class="search"
-      id="search"
-      type="text"
-      placeholder="Buscar dentro del archivo..."
-      aria-label="Buscar productos"
-    >
-  </div>
+<h2>Productos investigados</h2>
 
-  <div class="products" id="products"></div>
+<p>
+Objetos seleccionados por su relación con tecnología, misterio, investigación o curiosidad.
+</p>
 
-  <div class="ad">
-    ESPACIO PUBLICITARIO · ADSENSE
-  </div>
+</div>
+
+
+<div class="notice">
+
+<strong>AVISO DE AFILIACIÓN:</strong>
+Algunos enlaces de esta página son enlaces de afiliado de Amazon.
+Si realizas una compra a través de ellos, podemos recibir una comisión.
+
+</div>
+
+
+<div class="search-box">
+
+<input
+class="search"
+id="search"
+placeholder="🔎 Buscar dentro del archivo..."
+>
+
+</div>
+
+
+<div class="products" id="products"></div>
+
+
+<div class="ad">
+ESPACIO PUBLICITARIO · ADSENSE
+</div>
 
 </section>
 
 
-<!-- =========================
-     EXPEDIENTES
-========================= -->
+<!-- EXPEDIENTES -->
 
 <section id="expedientes">
 
-  <div class="section-title">
-    <small>ARCHIVO · EXPEDIENTES</small>
-    <h2>Expedientes abiertos</h2>
-    <p>
-      Casos, documentos y temas que forman parte del archivo de Testigo Ciego.
-    </p>
-  </div>
+<div class="section-title">
 
-  <div class="blog">
+<small>INVESTIGACIÓN</small>
 
-    <article class="blog-card">
-      <small>EXPEDIENTE 001</small>
-      <h3>¿Vivimos en una simulación?</h3>
-      <p>
-        Una investigación sobre la hipótesis de la simulación, sus argumentos y los experimentos que intentan explorar los límites de nuestra realidad.
-      </p>
-    </article>
+<h2>Expedientes relacionados</h2>
 
-    <article class="blog-card">
-      <small>EXPEDIENTE 002</small>
-      <h3>La Antártida</h3>
-      <p>
-        Qué sabemos realmente sobre el continente, qué zonas han sido estudiadas y dónde empiezan las preguntas.
-      </p>
-    </article>
+<p>
+Historias de Testigo Ciego relacionadas con los objetos que encontramos.
+</p>
 
-    <article class="blog-card">
-      <small>EXPEDIENTE 003</small>
-      <h3>La Tierra como colisionador</h3>
-      <p>
-        Una investigación sobre capas terrestres, campo magnético, energía y los fenómenos que ocurren bajo nuestros pies.
-      </p>
-    </article>
+</div>
 
-  </div>
+
+<div class="blog">
+
+<article class="blog-card">
+
+<small>EXPEDIENTE 01</small>
+
+<h3>
+Misterios y juegos de investigación
+</h3>
+
+<p>
+Los juegos de misterio intentan convertir al jugador en investigador.
+Pero algunos llevan el concepto mucho más lejos.
+</p>
+
+</article>
+
+
+<article class="blog-card">
+
+<small>EXPEDIENTE 02</small>
+
+<h3>
+Mirar el cielo de otra manera
+</h3>
+
+<p>
+Los telescopios inteligentes están haciendo que la observación astronómica sea cada vez más accesible.
+</p>
+
+</article>
+
+
+<article class="blog-card">
+
+<small>EXPEDIENTE 03</small>
+
+<h3>
+El mundo que nuestros ojos no ven
+</h3>
+
+<p>
+Microscopios digitales permiten explorar detalles que normalmente pasan completamente desapercibidos.
+</p>
+
+</article>
+
+</div>
 
 </section>
 
 
-<!-- =========================
-     INVESTIGACIONES
-========================= -->
+<!-- INVESTIGACIONES -->
 
 <section id="investigaciones">
 
-  <div class="section-title">
-    <small>TESTIGO CIEGO · INVESTIGACIÓN</small>
-    <h2>Investigaciones</h2>
-    <p>
-      No se trata de creer. Se trata de mirar las pruebas, comprobar los datos y separar hechos de hipótesis.
-    </p>
-  </div>
+<div class="section-title">
 
-  <div class="blog">
+<small>TESTIGO CIEGO</small>
 
-    <article class="blog-card">
-      <small>CIENCIA</small>
-      <h3>Lo que sabemos</h3>
-      <p>
-        Datos, experimentos y fuentes que permiten construir una investigación desde hechos comprobables.
-      </p>
-    </article>
+<h2>Investigamos antes de recomendar</h2>
 
-    <article class="blog-card">
-      <small>MISTERIO</small>
-      <h3>Lo que se cuestiona</h3>
-      <p>
-        Hipótesis y preguntas que siguen generando debate y que merecen ser examinadas con cuidado.
-      </p>
-    </article>
+<p>
+El objetivo no es llenar la página de productos. Es encontrar objetos que tengan algo que contar.
+</p>
 
-    <article class="blog-card">
-      <small>VERIFICACIÓN</small>
-      <h3>Lo que no encaja</h3>
-      <p>
-        Contradicciones, documentos y detalles que requieren una segunda mirada antes de aceptar una explicación.
-      </p>
-    </article>
+</div>
 
-  </div>
+
+<div class="blog">
+
+<article class="blog-card">
+
+<small>01 · DESCUBRIR</small>
+
+<h3>
+Encontramos el objeto
+</h3>
+
+<p>
+Buscamos productos curiosos relacionados con nuestras investigaciones y con los intereses de nuestra comunidad.
+</p>
+
+</article>
+
+
+<article class="blog-card">
+
+<small>02 · COMPROBAR</small>
+
+<h3>
+Investigamos qué es realmente
+</h3>
+
+<p>
+Consultamos las características disponibles y diferenciamos los datos de la publicidad.
+</p>
+
+</article>
+
+
+<article class="blog-card">
+
+<small>03 · COMPARTIR</small>
+
+<h3>
+Te dejamos el acceso
+</h3>
+
+<p>
+Si quieres verlo o comprarlo, accedes directamente a Amazon mediante nuestro enlace.
+</p>
+
+</article>
+
+</div>
 
 </section>
-
-</main>
 
 
 <footer>
 
-  <div class="footer">
+<div class="footer">
 
-    <div>
-      <strong>TESTIGO CIEGO</strong>
-      <div style="margin-top:8px;font-size:10px;">
-        ARCHIVO DE INVESTIGACIONES
-      </div>
-    </div>
+<div>
 
-    <div class="footer-links">
-      <a href="#">Privacidad</a>
-      <a href="#">Cookies</a>
-      <a href="#">Aviso legal</a>
-    </div>
+<strong>TESTIGO CIEGO</strong>
 
-  </div>
+<br>
+
+<small>
+Investigamos · Comprobamos · Compartimos
+</small>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="#">Privacidad</a>
+<a href="#">Cookies</a>
+<a href="#">Aviso legal</a>
+
+</div>
+
+</div>
 
 </footer>
 
 
 <script>
 
-/* =========================
-   PRODUCTOS
-========================= */
+/* =====================================================
+   PRODUCTOS DE AMAZON
+   ===================================================== */
 
 const products = [
 
-  {
-    id:"EXP-001",
-    category:"MISTERIO",
-    name:"Crímenes Imperfectos",
-    description:"Juego de investigación y misterio en el que tendrás que analizar pruebas, documentos y pistas para resolver un caso.",
-    image:"images/Screenshot_2026-09-22-22-50-05-366_com.amazon.mShop.android.shopping-edit.jpg",
-    specs:[
-      ["Tipo","Juego de misterio"],
-      ["Jugadores","1–6"],
-      ["Tema","Investigación"]
-    ],
-    url:"https://amzn.to/4ybop9S"
-  },
+{
+id:"EXP-001",
 
-  {
-    id:"EXP-002",
-    category:"ASTRONOMÍA",
-    name:"DWARFLAB Dwarf Mini",
-    description:"Telescopio inteligente portátil pensado para observar y fotografiar objetos astronómicos mediante su sistema automatizado.",
-    image:"images/Screenshot_2026-09-22-22-50-47-591_com.amazon.mShop.android.shopping-edit.jpg",
-    specs:[
-      ["Tipo","Telescopio inteligente"],
-      ["Peso","≈840 g"],
-      ["Control","App"]
-    ],
-    url:"https://amzn.to/3UWS7ke"
-  },
+category:"MISTERIO",
 
-  {
-    id:"EXP-003",
-    category:"MICROINVESTIGACIÓN",
-    name:"MatataStudio MT2",
-    description:"Microscopio digital con pantalla de 7 pulgadas y hasta 1200x de ampliación digital, pensado también para inspección y electrónica.",
-    image:"images/Screenshot_2026-09-22-22-51-08-323_com.amazon.mShop.android.shopping-edit.jpg",
-    specs:[
-      ["Tipo","Microscopio digital"],
-      ["Pantalla","7 pulgadas"],
-      ["Ampliación","Hasta 1200x"]
-    ],
-    url:"https://amzn.to/4xDFBU8"
-  },
+name:"Crímenes Imperfectos",
 
-  {
-    id:"EXP-004",
-    category:"MICROINVESTIGACIÓN",
-    name:"MatataStudio M2C",
-    description:"Microscopio digital inalámbrico portátil con cámara HD, iluminación LED y ampliación de hasta 1000x.",
-    image:"images/Screenshot_2026-09-22-22-51-22-494_com.amazon.mShop.android.shopping-edit.jpg",
-    specs:[
-      ["Tipo","Microscopio WiFi"],
-      ["Ampliación","Hasta 1000x"],
-      ["Vídeo","1080p"]
-    ],
-    url:"https://amzn.to/4cTAJTC"
-  }
+description:
+"Juego de investigación y misterio en el que tendrás que analizar pruebas, documentos y pistas para resolver un caso.",
 
-];
+icon:"🔎",
+image:"images/Screenshot_2026-09-22-22-50-05-366_com.amazon.mShop.android.shopping-edit.jpg",
+
+specs:[
+["Tipo","Juego de misterio"],
+["Jugadores","1–6"],
+["Tema","Investigación"]
+],
+
+url:"https://amzn.to/4ybop9S"
+},
 
 
-/* =========================
-   RENDER PRODUCTOS
-========================= */
+{
+id:"EXP-002",
 
-const productsContainer = document.getElementById("products");
+category:"ASTRONOMÍA",
 
-function renderProducts(list){
+name:"DWARFLAB Dwarf Mini",
 
-  productsContainer.innerHTML = "";
+description:
+"Telescopio inteligente portátil pensado para observar y fotografiar objetos astronómicos mediante su sistema automatizado.",
 
-  if(list.length === 0){
+icon:"🔭",
+image:"images/Screenshot_2026-09-22-22-50-47-591_com.amazon.mShop.android.shopping-edit.jpg",
 
-    productsContainer.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        padding:40px;
-        border:1px solid #26322b;
-        text-align:center;
-        color:#89958d;
-        font-size:13px;
-      ">
-        No se han encontrado expedientes.
-      </div>
-    `;
+specs:[
+["Tipo","Telescopio inteligente"],
+["Peso","≈840 g"],
+["Control","App"]
+],
 
-    return;
-  }
-
-  list.forEach(product => {
-
-    const card = document.createElement("article");
-
-    card.className = "product";
-
-    card.innerHTML = `
-
-      <div class="product-visual">
-
-        <div class="case-number">
-          ${product.id}
-        </div>
-
-        <img
-          src="${product.image}"
-          alt="${product.name}"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="product-body">
-
-        <div class="category">
-          ${product.category}
-        </div>
-
-        <h3>
-          ${product.name}
-        </h3>
-
-        <p class="product-description">
-          ${product.description}
-        </p>
-
-        <div class="specs">
-
-          ${product.specs.map(spec => `
-            <div>
-              <span>${spec[0]}</span>
-              <span>${spec[1]}</span>
-            </div>
-          `).join("")}
-
-        </div>
-
-        <a
-          class="amazon"
-          href="${product.url}"
-          target="_blank"
-          rel="nofollow sponsored noopener"
-        >
-          VER PRODUCTO
-        </a>
-
-        <div class="disclaimer">
-          ENLACE DE AFILIADO
-        </div>
-
-      </div>
-
-    `;
-
-    productsContainer.appendChild(card);
-
-  });
-
-}
+url:"https://amzn.to/3UWS7ke"
+},
 
 
-/* =========================
-   BUSCADOR
-========================= */
+{
+id:"EXP-003",
 
-const searchInput = document.getElementById("search");
+category:"MICROINVESTIGACIÓN",
 
-searchInput.addEventListener("input", function(){
+name:"MatataStudio MT2",
 
-  const query = this.value.toLowerCase().trim();
+description:
+"Microscopio digital con pantalla de 7 pulgadas y hasta 1200x de ampliación digital, pensado también para inspección y electrónica.",
 
-  const filtered = products.filter(product => {
+icon:"🔬",
+image:"images/Screenshot_2026-09-22-22-51-08-323_com.amazon.mShop.android.shopping-edit.jpg",
 
-    return (
-      product.name.toLowerCase().includes(query) ||
-      product.category.toLowerCase().includes(query) ||
-      product.description.toLowerCase().includes(query)
-    );
+specs:[
+["Tipo","Microscopio digital"],
+["Pantalla","7 pulgadas"],
+["Ampliación","Hasta 1200x"]
+],
 
-  });
-
-  renderProducts(filtered);
-
-});
+url:"https://amzn.to/4xDFBU8"
+},
 
 
-renderProducts(pr
+{
+id:"EXP-004",
+
+category:"MICROINVESTIGACIÓN",
+
+name:"MatataStudio M2C",
+
+descript
