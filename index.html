@@ -779,6 +779,7 @@ description:
 "Juego de investigación y misterio en el que tendrás que analizar pruebas, documentos y pistas para resolver un caso.",
 
 icon:"🔎",
+image:"images/Screenshot_2026-09-22-22-50-05-366_com.amazon.mShop.android.shopping-edit.jpg",
 
 specs:[
 ["Tipo","Juego de misterio"],
@@ -801,6 +802,7 @@ description:
 "Telescopio inteligente portátil pensado para observar y fotografiar objetos astronómicos mediante su sistema automatizado.",
 
 icon:"🔭",
+image:"images/Screenshot_2026-09-22-22-50-47-591_com.amazon.mShop.android.shopping-edit.jpg",
 
 specs:[
 ["Tipo","Telescopio inteligente"],
@@ -823,6 +825,7 @@ description:
 "Microscopio digital con pantalla de 7 pulgadas y hasta 1200x de ampliación digital, pensado también para inspección y electrónica.",
 
 icon:"🔬",
+image:"images/Screenshot_2026-09-22-22-51-08-323_com.amazon.mShop.android.shopping-edit.jpg",
 
 specs:[
 ["Tipo","Microscopio digital"],
@@ -845,6 +848,7 @@ description:
 "Microscopio digital inalámbrico portátil con cámara HD, iluminación LED y ampliación de hasta 1000x.",
 
 icon:"🧬",
+image:"images/Screenshot_2026-09-22-22-51-22-494_com.amazon.mShop.android.shopping-edit.jpg",
 
 specs:[
 ["Tipo","Microscopio WiFi"],
@@ -939,6 +943,14 @@ card.innerHTML = `
 
 <div class="case-number">
 ${product.id}
+</div>
+
+<img
+src="${product.image}"
+alt="${product.name}"
+style="width:100%;height:100%;object-fit:contain;border-radius:8px;"
+>
+
 </div>
 
 <div class="visual-icon">
