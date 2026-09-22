@@ -267,11 +267,17 @@ border:1px solid rgba(115,255,152,.18);
 border-radius:50%;
 }
 
-.visual-icon{
-font-size:70px;
+.product-visual img{
 position:relative;
 z-index:2;
-filter:drop-shadow(0 0 20px rgba(115,255,152,.25));
+width:100%;
+height:100%;
+object-fit:contain;
+border-radius:8px;
+}
+
+.visual-icon{
+display:none;
 }
 
 .case-number{
@@ -285,6 +291,7 @@ border:1px solid #31583c;
 padding:5px 8px;
 border-radius:4px;
 background:#07100a;
+z-index:4;
 }
 
 .product-body{
@@ -371,481 +378,11 @@ outline:none;
 }
 
 .search:focus{
-<style>
-
-:root{
---bg:#050606;
---bg2:#080b09;
---panel:#0c110f;
---panel2:#101713;
---green:#78ff9b;
---green2:#42dc72;
---cream:#e8e6dc;
---text:#f2f4ef;
---muted:#89948d;
---line:#253129;
---line2:#34483a;
-}
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-background:
-radial-gradient(circle at 50% -10%,rgba(45,100,62,.30),transparent 35%),
-linear-gradient(180deg,#050606 0%,#070a08 100%);
-color:var(--text);
-font-family:Arial,Helvetica,sans-serif;
-overflow-x:hidden;
-}
-
-body:before{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-opacity:.035;
-background-image:
-linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),
-linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
-background-size:40px 40px;
-z-index:0;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-position:sticky;
-top:0;
-z-index:999;
-background:rgba(5,7,6,.90);
-backdrop-filter:blur(18px);
-border-bottom:1px solid var(--line);
-}
-
-.nav{
-max-width:1250px;
-margin:auto;
-padding:14px 22px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
-
-.logo{
-font-weight:900;
-letter-spacing:2.5px;
-display:flex;
-align-items:center;
-gap:12px;
-font-size:15px;
-}
-
-.logo-mark{
-width:38px;
-height:38px;
-border:1px solid var(--green);
-display:grid;
-place-items:center;
-color:var(--green);
-position:relative;
-background:#07100a;
-}
-
-.logo-mark:before,
-.logo-mark:after{
-content:"";
-position:absolute;
-border:1px solid rgba(120,255,155,.35);
-}
-
-.logo-mark:before{
-inset:5px;
-}
-
-.logo-mark:after{
-inset:10px;
-}
-
-.logo-mark span{
-font-size:17px;
-position:relative;
-z-index:2;
-}
-
-.logo small{
-display:block;
-font-size:7px;
-letter-spacing:2px;
-color:#66736b;
-margin-top:2px;
-}
-
-nav{
-display:flex;
-gap:28px;
-}
-
-nav a{
-font-size:11px;
-letter-spacing:1.5px;
-text-transform:uppercase;
-color:#89958d;
-transition:.2s;
-}
-
-nav a:hover{
-color:var(--green);
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-position:relative;
-min-height:650px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:90px 20px;
-overflow:hidden;
-}
-
-.hero:before{
-content:"";
-position:absolute;
-width:520px;
-height:520px;
-border:1px solid rgba(120,255,155,.08);
-transform:rotate(45deg);
-}
-
-.hero:after{
-content:"";
-position:absolute;
-width:700px;
-height:700px;
-border:1px solid rgba(120,255,155,.035);
-transform:rotate(45deg);
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-max-width:900px;
-}
-
-.classified{
-display:inline-flex;
-align-items:center;
-gap:9px;
-border:1px solid #31583c;
-color:var(--green);
-padding:8px 14px;
-font-size:9px;
-letter-spacing:2.5px;
-margin-bottom:28px;
-background:rgba(7,16,10,.65);
-}
-
-.classified:before{
-content:"";
-width:6px;
-height:6px;
-border-radius:50%;
-background:var(--green);
-box-shadow:0 0 12px var(--green);
-}
-
-h1{
-font-size:clamp(48px,8vw,90px);
-line-height:.91;
-letter-spacing:-5px;
-margin-bottom:27px;
-font-weight:900;
-}
-
-h1 span{
-color:var(--green);
-}
-
-.hero p{
-font-size:16px;
-line-height:1.7;
-color:var(--muted);
-max-width:650px;
-margin:auto;
-}
-
-.buttons{
-margin-top:34px;
-display:flex;
-justify-content:center;
-gap:12px;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:14px 23px;
-font-size:11px;
-letter-spacing:1px;
-font-weight:bold;
-border:1px solid var(--green);
-transition:.25s;
-}
-
-.primary{
-background:var(--green);
-color:#061008;
-}
-
-.secondary{
-color:var(--green);
-background:rgba(10,20,13,.5);
-}
-
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 30px rgba(115,255,152,.12);
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-section{
-position:relative;
-z-index:1;
-max-width:1250px;
-margin:auto;
-padding:85px 22px;
-}
-
-.section-title{
-margin-bottom:32px;
-}
-
-.section-title small{
-color:var(--green);
-font-size:9px;
-letter-spacing:3px;
-}
-
-.section-title h2{
-font-size:38px;
-margin-top:9px;
-letter-spacing:-1.5px;
-}
-
-.section-title p{
-color:var(--muted);
-margin-top:9px;
-line-height:1.6;
-max-width:650px;
-}
-
-/* =========================
-   NOTICE
-========================= */
-
-.notice{
-border-left:2px solid var(--green);
-background:linear-gradient(90deg,#0b120d,#080c0a);
-padding:17px 19px;
-font-size:12px;
-line-height:1.6;
-color:#929d95;
-margin-bottom:28px;
-}
-
-.notice strong{
-color:var(--green);
-}
-
-/* =========================
-   PRODUCTS
-========================= */
-
-.products{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:18px;
-}
-
-.product{
-background:linear-gradient(180deg,#101612,#080c0a);
-border:1px solid var(--line);
-border-radius:4px;
-overflow:hidden;
-transition:.3s;
-position:relative;
-}
-
-.product:after{
-content:"";
-position:absolute;
-inset:7px;
-border:1px solid rgba(120,255,155,.035);
-pointer-events:none;
-}
-
-.product:hover{
-transform:translateY(-6px);
-border-color:#42634c;
-box-shadow:0 20px 45px rgba(0,0,0,.45);
-}
-
-.product-visual{
-height:230px;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-overflow:hidden;
-background:
-radial-gradient(circle at center,rgba(34,75,48,.65),#090d0b 68%);
-}
-
-.product-visual:before{
-content:"";
-position:absolute;
-width:175px;
-height:175px;
-border:1px solid rgba(120,255,155,.13);
-transform:rotate(45deg);
-}
-
-.product-visual img{
-position:relative;
-z-index:2;
-}
-
-.case-number{
-position:absolute;
-top:12px;
-left:12px;
-font-size:8px;
-letter-spacing:1.5px;
-color:var(--green);
-border:1px solid #31583c;
-padding:5px 8px;
-background:#07100a;
-z-index:4;
-}
-
-.product-body{
-padding:20px;
-}
-
-.category{
-font-size:9px;
-letter-spacing:2px;
-color:var(--green);
-text-transform:uppercase;
-}
-
-.product h3{
-font-size:18px;
-margin:9px 0 11px;
-}
-
-.product-description{
-color:#89958d;
-font-size:12px;
-line-height:1.6;
-min-height:75px;
-}
-
-.specs{
-margin:15px 0;
-padding-top:14px;
-border-top:1px solid var(--line);
-}
-
-.specs div{
-display:flex;
-justify-content:space-between;
-gap:10px;
-font-size:11px;
-margin:7px 0;
-}
-
-.specs span:first-child{
-color:#69756d;
-}
-
-.specs span:last-child{
-color:#c6cec8;
-text-align:right;
-}
-
-.amazon{
-display:block;
-background:var(--green);
-color:#061008;
-text-align:center;
-font-size:11px;
-letter-spacing:.7px;
-font-weight:bold;
-padding:12px;
-margin-top:15px;
-transition:.2s;
-}
-
-.amazon:hover{
-background:#a0ffb8;
-}
-
-.disclaimer{
-font-size:9px;
-color:#68736c;
-text-align:center;
-margin-top:9px;
-}
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-box{
-margin-bottom:25px;
-}
-
-.search{
-width:100%;
-background:#090e0c;
-border:1px solid var(--line);
-color:white;
-padding:16px;
-border-radius:3px;
-outline:none;
-font-size:13px;
-}
-
-.search:focus{
 border-color:var(--green);
 box-shadow:0 0 0 2px rgba(120,255,155,.06);
 }
 
-/* =========================
-   BLOG / EXPEDIENTES
-========================= */
+/* BLOG / EXPEDIENTES */
 
 .blog{
 display:grid;
@@ -856,7 +393,7 @@ gap:18px;
 .blog-card{
 background:linear-gradient(180deg,#101612,#090d0b);
 border:1px solid var(--line);
-border-radius:4px;
+border-radius:9px;
 padding:25px;
 position:relative;
 transition:.25s;
@@ -894,9 +431,7 @@ font-size:13px;
 line-height:1.65;
 }
 
-/* =========================
-   ADS
-========================= */
+/* ADS */
 
 .ad{
 height:120px;
@@ -910,20 +445,16 @@ letter-spacing:2px;
 margin:40px 0;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
 border-top:1px solid var(--line);
 padding:45px 20px;
 color:#68736c;
-position:relative;
-z-index:1;
 }
 
 .footer{
-max-width:1250px;
+max-width:1200px;
 margin:auto;
 display:flex;
 justify-content:space-between;
@@ -947,9 +478,7 @@ font-size:11px;
 color:var(--green);
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:1000px){
 
@@ -981,16 +510,6 @@ height:34px;
 .hero{
 min-height:590px;
 padding:70px 18px;
-}
-
-.hero:before{
-width:350px;
-height:350px;
-}
-
-.hero:after{
-width:480px;
-height:480px;
 }
 
 h1{
@@ -1026,7 +545,6 @@ grid-template-columns:1fr;
 
 <body>
 
-
 <header>
 
 <div class="nav">
@@ -1052,7 +570,6 @@ TESTIGO CIEGO
 </div>
 
 </header>
-
 
 <!-- HERO -->
 
@@ -1090,7 +607,6 @@ VER INVESTIGACIONES
 
 </div>
 
-
 <!-- PRODUCTOS -->
 
 <section id="productos">
@@ -1107,7 +623,6 @@ Objetos seleccionados por su relación con tecnología, misterio, investigación
 
 </div>
 
-
 <div class="notice">
 
 <strong>AVISO DE AFILIACIÓN:</strong>
@@ -1115,7 +630,6 @@ Algunos enlaces de esta página son enlaces de afiliado de Amazon.
 Si realizas una compra a través de ellos, podemos recibir una comisión.
 
 </div>
-
 
 <div class="search-box">
 
@@ -1127,16 +641,13 @@ placeholder="🔎 Buscar dentro del archivo..."
 
 </div>
 
-
 <div class="products" id="products"></div>
-
 
 <div class="ad">
 ESPACIO PUBLICITARIO · ADSENSE
 </div>
 
 </section>
-
 
 <!-- EXPEDIENTES -->
 
@@ -1153,7 +664,6 @@ Historias de Testigo Ciego relacionadas con los objetos que encontramos.
 </p>
 
 </div>
-
 
 <div class="blog">
 
@@ -1172,7 +682,6 @@ Pero algunos llevan el concepto mucho más lejos.
 
 </article>
 
-
 <article class="blog-card">
 
 <small>EXPEDIENTE 02</small>
@@ -1186,7 +695,6 @@ Los telescopios inteligentes están haciendo que la observación astronómica se
 </p>
 
 </article>
-
 
 <article class="blog-card">
 
@@ -1206,7 +714,6 @@ Microscopios digitales permiten explorar detalles que normalmente pasan completa
 
 </section>
 
-
 <!-- INVESTIGACIONES -->
 
 <section id="investigaciones">
@@ -1222,7 +729,6 @@ El objetivo no es llenar la página de productos. Es encontrar objetos que tenga
 </p>
 
 </div>
-
 
 <div class="blog">
 
@@ -1240,7 +746,6 @@ Buscamos productos curiosos relacionados con nuestras investigaciones y con los 
 
 </article>
 
-
 <article class="blog-card">
 
 <small>02 · COMPROBAR</small>
@@ -1254,7 +759,6 @@ Consultamos las características disponibles y diferenciamos los datos de la pub
 </p>
 
 </article>
-
 
 <article class="blog-card">
 
@@ -1274,7 +778,6 @@ Si quieres verlo o comprarlo, accedes directamente a Amazon mediante nuestro enl
 
 </section>
 
-
 <footer>
 
 <div class="footer">
@@ -1291,7 +794,6 @@ Investigamos · Comprobamos · Compartimos
 
 </div>
 
-
 <div class="footer-links">
 
 <a href="#">Privacidad</a>
@@ -1304,7 +806,6 @@ Investigamos · Comprobamos · Compartimos
 
 </footer>
 
-
 <script>
 
 /* =====================================================
@@ -1315,9 +816,7 @@ const products = [
 
 {
 id:"EXP-001",
-
 category:"MISTERIO",
-
 name:"Crímenes Imperfectos",
 
 description:
@@ -1335,12 +834,9 @@ specs:[
 url:"https://amzn.to/4ybop9S"
 },
 
-
 {
 id:"EXP-002",
-
 category:"ASTRONOMÍA",
-
 name:"DWARFLAB Dwarf Mini",
 
 description:
@@ -1358,12 +854,9 @@ specs:[
 url:"https://amzn.to/3UWS7ke"
 },
 
-
 {
 id:"EXP-003",
-
 category:"MICROINVESTIGACIÓN",
-
 name:"MatataStudio MT2",
 
 description:
@@ -1381,12 +874,9 @@ specs:[
 url:"https://amzn.to/4xDFBU8"
 },
 
-
 {
 id:"EXP-004",
-
 category:"MICROINVESTIGACIÓN",
-
 name:"MatataStudio M2C",
 
 description:
@@ -1406,7 +896,6 @@ url:"https://amzn.to/4cTAJTC"
 
 ];
 
-
 /* =====================================================
    MOSTRAR PRODUCTOS
    ===================================================== */
@@ -1417,12 +906,10 @@ document.getElementById("products");
 const search =
 document.getElementById("search");
 
-
 function renderProducts(){
 
 const query =
 search.value.toLowerCase().trim();
-
 
 const filtered =
 products.filter(product =>
@@ -1445,9 +932,7 @@ product.description
 
 );
 
-
 container.innerHTML = "";
-
 
 if(filtered.length === 0){
 
@@ -1472,15 +957,12 @@ return;
 
 }
 
-
 filtered.forEach(product => {
-
 
 const card =
 document.createElement("article");
 
 card.className="product";
-
 
 card.innerHTML = `
 
@@ -1493,17 +975,9 @@ ${product.id}
 <img
 src="${product.image}"
 alt="${product.name}"
-style="width:100%;height:100%;object-fit:contain;border-radius:8px;"
 >
 
 </div>
-
-<div class="visual-icon">
-${product.icon}
-</div>
-
-</div>
-
 
 <div class="product-body">
 
@@ -1511,16 +985,13 @@ ${product.icon}
 ${product.category}
 </div>
 
-
 <h3>
 ${product.name}
 </h3>
 
-
 <p class="product-description">
 ${product.description}
 </p>
-
 
 <div class="specs">
 
@@ -1538,23 +1009,14 @@ ${product.specs.map(spec => `
 
 </div>
 
-
 <a
-
 href="${product.url}"
-
 target="_blank"
-
 rel="nofollow sponsored noopener"
-
 class="amazon"
-
 >
-
 VER EN AMAZON →
-
 </a>
-
 
 <div class="disclaimer">
 Enlace de afiliado de Amazon
@@ -1564,24 +1026,20 @@ Enlace de afiliado de Amazon
 
 `;
 
-
 container.appendChild(card);
 
 });
 
 }
 
-
 search.addEventListener(
 "input",
 renderProducts
 );
 
-
 renderProducts();
 
 </script>
-
 
 </body>
 </html>
